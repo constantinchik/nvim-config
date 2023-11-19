@@ -11,6 +11,11 @@ return {
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
+      require('rose-pine').setup({
+        variant = 'moon',
+        disable_italics = true,
+        disable_background = true,
+      })
       vim.cmd('colorscheme rose-pine')
     end
   },
@@ -48,4 +53,5 @@ return {
     }
   },
 
+  'ThePrimeagen/vim-be-good',
 }
