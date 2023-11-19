@@ -12,7 +12,7 @@ The main file is `init.vim`, which is the entry point for the configuration.
 
 ### What was done:
 - Installed [neovim](https://github.com/neovim/neovim)
-- Installed [packer](https://github.com/wbthomason/packer.nvim)
+- Installed [lazy](https://github.com/folke/lazy.nvim)
 - Created the `remap.lua` file that configured the following remaps:
   - `␣pv` - project view - opens the file explorer
   - `J` in visual mode will move the selected lines down
@@ -76,6 +76,16 @@ The main file is `init.vim`, which is the entry point for the configuration.
     - `␣x` - show workspace diagnostics in the current line
     - `␣z` - show LSP saga actions
 - Configured the default sets of vim in `set.lua`
+
+## Installation
+
+First you need to install nvim. Follow [this guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) to do this.
+
+To install the configuration, clone the repository into the `~/.config/nvim` folder and run `nvim` to install the plugins:
+
+```bash
+git clone https://github.com/constantinchik/nvim-config.git ~/.config/nvim
+```
 
 
 # TIPS to remember
