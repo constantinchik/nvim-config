@@ -3,6 +3,23 @@
 This repository contains the neo-vim configuration for PDE environment of [@constantinchik](https://github.com/constantinchik).
 The initial configuration was done by following the [YouTube guide](https://youtu.be/w7i4amO_zaE) by [@theprimeagen](https://github.com/ThePrimeagen).
 
+## Installation
+
+First you need to install nvim. Follow [this guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) to do this.
+
+To install the configuration, clone the repository into the `~/.config/nvim` folder and run `nvim` to install the plugins:
+
+```bash
+git clone https://github.com/constantinchik/nvim-config.git ~/.config/nvim
+```
+
+After this config will be applied to your nvim instance.
+To activate Copilot use the following command:
+
+```bash
+:Copilot setup
+```
+
 ## Explanation
 
 The configuration is split into multiple files, each of which is responsible for a specific part of the configuration.
@@ -75,18 +92,20 @@ The main file is `init.vim`, which is the entry point for the configuration.
     - `␣t` - show type definition
     - `␣x` - show workspace diagnostics in the current line
     - `␣z` - show LSP saga actions
+- Added [dressing](https://github.com/stevearc/dressing.nvim) to have a nice prompt UI
+- Added [conform](https://github.com/stevearc/conform.nvim) for easy file formattins
+    - `␣mp` - format file
+- Added [nvim-lint](https://github.com/mfussenegger/nvim-lint) foe easy file linting
+    - `␣l` - lint file
+- Added [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) for snippets:
+    - `Ctrl+k` - previous suggestion
+    - `Ctrl+j` - next suggestion
+    - `Ctrl+b` - prev page
+    - `Ctrl+f` - next page
+    - `Ctrl+␣` - open autosuggestion menu
+    - `Ctrl+e` - open autosuggestion menu
+    - `Enter` - confirm suggestion
 - Configured the default sets of vim in `set.lua`
-
-## Installation
-
-First you need to install nvim. Follow [this guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) to do this.
-
-To install the configuration, clone the repository into the `~/.config/nvim` folder and run `nvim` to install the plugins:
-
-```bash
-git clone https://github.com/constantinchik/nvim-config.git ~/.config/nvim
-```
-
 
 # TIPS to remember
 
