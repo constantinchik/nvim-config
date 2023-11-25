@@ -1,14 +1,32 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.4",
-  -- or                            , branch = '0.1.x',
-  dependencies = { { "nvim-lua/plenary.nvim" } },
+  branch = "0.1.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-tree/nvim-web-devicons",
+  },
   config = function()
-    local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find all files" })
-    vim.keymap.set("n", "<leader>pf", builtin.git_files, { desc = "Fuzzy find files that are not ignored by git" })
-    vim.keymap.set("n", "<leader>ps", function()
-      builtin.grep_string({ search = vim.fn.input("Grep > ") })
-    end)
+    local telescope = require("telescope")
+    local actions = require("telescope.actions")
+
+    telescope.setup({
+      defaults = {
+        path_display = { "truncate " },
+        mappings = {
+          i = {
+            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
+            ["<C-j>"] = actions.move_selection_next, -- move to next result
+            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+          },
+        },
+      },
+    })
+    
+    vim.keymap.set("n", "<leader>fa", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find all files" })
+    vim.keymap.set("n", "<leader>pf", "<cmd>Telescope git_files<cr>", { desc = "Fuzzy find non git-ignorred files" })
+    vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+    vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+    vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
   end,
 }
