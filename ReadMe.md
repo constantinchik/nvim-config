@@ -39,6 +39,7 @@ the `options.lua` file contains the options for the editor.
 ### Remaps
 
 All remaps could be found in the `remap.lua` file. The following remaps are currently configured:
+
 - `␣pv` - project view - opens the file explorer
 - `J` in visual mode will move the selected lines down
 - `K` in visual mode will move the selected lines up
@@ -109,36 +110,36 @@ Currently the following plugins are installed:
   - `␣z` - show LSP saga actions
 - [dressing](https://github.com/stevearc/dressing.nvim) to have a nice prompt UI
 - [conform](https://github.com/stevearc/conform.nvim) for easy file formattins
-    - `␣mp` - format file
+  - `␣mp` - format file
 - [nvim-lint](https://github.com/mfussenegger/nvim-lint) foe easy file linting
-    - `␣l` - lint file
+  - `␣l` - lint file
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) for snippets:
-    - `Ctrl+k` - previous suggestion
-    - `Ctrl+j` - next suggestion
-    - `Ctrl+b` - prev page
-    - `Ctrl+f` - next page
-    - `Ctrl+a` - open autosuggestion menu
-    - `Ctrl+e` - close completion menu
-    - `TAB` - confirm first suggestion
-    - `Enter` - confirm selected suggestion
+  - `Ctrl+k` - previous suggestion
+  - `Ctrl+j` - next suggestion
+  - `Ctrl+b` - prev page
+  - `Ctrl+f` - next page
+  - `Ctrl+a` - open autosuggestion menu
+  - `Ctrl+e` - close completion menu
+  - `TAB` - confirm first suggestion
+  - `Enter` - confirm selected suggestion
 - [alpha-nvim](https://github.com/goolord/alpha-nvim) for launch screen
 - [auto-session](https://github.com/goolord/alpha-nvim) for session management
-    - `␣wr` - restore last session
-    - `␣ws` - save session
+  - `␣wr` - restore last session
+  - `␣ws` - save session
 - [bufferline](https://github.com/akinsho/bufferline.nvim) for tabs inside of editor
-    // TODO: add key bindings
+  // TODO: add key bindings
 - [colorizer](https://github.com/NvChad/nvim-colorizer.lua) for colorizing the color codes
 - [comment](https://github.com/terrortylor/nvim-comment) for commenting
-    - `gcc` - comment line
-    - `gc` - comment selection
+  - `gcc` - comment line
+  - `gc` - comment selection
 - [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git integration
 - [lualine](https://github.com/nvim-lualine/lualine.nvim) for status line
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs) for auto pairs of brackets
 - [nvim-surround](https://github.com/kylechui/nvim-surround) for surrounding the text with brackets
-    // TODO: add key bindings
+  // TODO: add key bindings
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) for icons in the file
 - [vim-maximizer](https://github.com/szw/vim-maximizer) for maximizing the window
-    - `␣sm` - minimize/maximize window
+  - `␣sm` - minimize/maximize window
 - [which-key](https://github.com/folke/which-key.nvim) for showing the key bindings while you type them
 
 # TIPS to remember

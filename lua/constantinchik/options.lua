@@ -31,3 +31,9 @@ opt.updatetime = 50
 
 opt.colorcolumn = "80"
 opt.exrc = true
+
+vim.cmd([[
+    set list
+    set lcs+=tab:\|\-
+    set lcs+=space:·
+]])
