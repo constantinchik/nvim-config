@@ -1,3 +1,9 @@
-plugin/packer_compiled.lua
+plugin
+spell
+ftplugin
+syntax
+coc-settings.json
+.luarc.json
 lazy-lock.json
-.DS_Store
+after
+**/.DS_Store
