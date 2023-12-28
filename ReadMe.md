@@ -42,7 +42,6 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 
 | Command     | Description                                                                                                                                               |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `␣pv`       | project view - opens the file explorer                                                                                                                    |
 | `J`         | in visual mode will move the selected lines down                                                                                                          |
 | `K`         | in visual mode will move the selected lines up                                                                                                            |
 | `J`         | in normal mode will move the current line down but will remain focus on the same place                                                                    |
@@ -52,10 +51,10 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | `␣p`        | will paste the content but will remain it in the buffer if you are doing that on the visual selected text (instead of yanking the visually selected text) |
 | `␣y`        | will open the system clipboard registry and you can copy there                                                                                            |
 | `␣d`        | deleting to void register                                                                                                                                 |
-| `Ctrl+f`    | switch project via tmux (TODO: Does not work now)                                                                                                         |
-| `␣f`        | format                                                                                                                                                    |
 | `␣s`        | start replacing the word under the cursor                                                                                                                 |
-| `␣x`        | create executable from script                                                                                                                             |
+| `Ctrl-k`    | next quickfix                                                                                                                                             |
+| `Ctrl-j`    | prev quickfix                                                                                                                                             |
+| `␣␣`        | source current file                                                                                                                                       |
 
 ## Plugins
 
@@ -67,19 +66,36 @@ Currently the following plugins are installed:
 
 | Command | Description                                               |
 | ------- | --------------------------------------------------------- |
-| `␣pf`   | finds the files in the current project (non git ignored). |
-| `␣fa`   | finds all the files in the current project.               |
-| `␣fr`   | finds recent files in the current project.                |
-| `␣ff`   | find using grep.                                          |
-| `␣fc`   | find string under cursor.                                 |
+| **Files**                                                          ||
+| `␣ff`   | Find files                                                |
+| `␣fa`   | Finds all the files in the current project.               |
+| `␣fw`   | Find using grep.                                          |
+| `␣fb`   | Find buffers.                                             |
+| `␣fh`   | Find help tags.                                           |
+| `␣fo`   | Find old files.                                           |
+| `␣fz`   | Find in current buffer.                                   |
+| `␣fs`   | Find string under cursor.                                 |
+| **LSP**                                                            ||
+| `gd`    | LSP definition                                            |
+| `gi`    | LSP implementation                                        |
+| `gr`    | LSP references                                            |
+| `gt`    | LSP type                                                  |
+| `␣D`    | Buffer diagnostics                                        |
+| **Git**                                                            ||
+| `␣cm`   | Find Git commits.                                         |
+| `␣gt`   | Find Git status                                           |
+| **Bookmarks**                                                      ||
+| `␣ma`   | Find bookmarks                                            |
+| **Undo**                                                           ||
+| `␣u`   | Undo history                                               |
+| **Notifications**                                                  ||
+| `␣fn`   | Find all notifications                                    |
 
-### [rose-pine](https://github.com/rose-pine/neovim) color scheme.
+### [catppuccin](https://github.com/catppuccin/nvim) color scheme.
 
-Added function ColorMyPencils() to use this theme as well as ignore the background color of the terminal, to allow transparent terminals be transparent.
+Disabled italics for theme. Added transparent background.
 
 ### [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting.
-
-### [treesitter playground](https://github.com/nvim-treesitter/playground)
 
 ### [harpoon](https://github.com/ThePrimeagen/harpoon) for quick navigation between files
 
@@ -88,55 +104,34 @@ Added function ColorMyPencils() to use this theme as well as ignore the backgrou
 | `␣hm`    | add file to harpoon         |
 | `␣hn`    | go to next harpoon file     |
 | `␣hp`    | go to previous harpoon file |
-| `Ctrl+h` | open harpoon menu           |
-
-### [undotree](https://github.com/mbbill/undotree) for undo history
-
-| Command | Description    |
-| ------- | -------------- |
-| `␣u`    | open undo tree |
+| `␣hr`    | open harpoon menu           |
 
 ### [fugitive](https://github.com/tpope/vim-fugitive) for git integration
 
 | Command | Description     |
 | ------- | --------------- |
 | `␣gs`   | open git status |
-| `␣gc`   | open git commit |
-| `␣gb`   | open git blame  |
-| `␣gd`   | open git diff   |
 
 ### [Mason](https://github.com/williamboman/mason-lspconfig.nvim) for LSP support (run `:Mason` to install the requires LSP or formatter)
 
-### [LSP-zero](https://github.com/VonHeikemen/lsp-zero.nvim) for LSP integration
+### [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) LSP
 
-| Command          | Description                   |
-| ---------------- | ----------------------------- |
-| `Ctrl+p`         | go to previous autocompletion |
-| `Ctrl+n`         | go to next autocompletion     |
-| `Ctrl+y`         | accept autocompletion         |
-| `Ctrl+␣`         | start autocompletion          |
-| `␣gd`            | go to definition              |
-| `K` or `␣h`      | hover                         |
-| `␣vws`           | show workspace symbols        |
-| `␣vd` or `␣w`    | show workspace diagnostics    |
-| `[d`             | go to next diagnostic         |
-| `]d`             | go to previous diagnostic     |
-| `␣vca` or `␣a`   | code action                   |
-| `␣vrr` or `␣gr`  | show references               |
-| `␣vrn` or `␣rn`  | rename symbol                 |
-| `Ctrl+h` or `␣s` | show signature help           |
-
-TODO: review the rest of the key bindings:
-| Command | Description |
-| --- | --- |
-| `␣gi` | go to implementation |
-| `␣f` | format |
-| `␣d` | show diagnostics |
-| `␣e` | show diagnostics in the current line |
-| `␣q` | show quickfix |
-| `␣t` | show type definition |
-| `␣x` | show workspace diagnostics in the current line |
-| `␣z` | show LSP saga actions |
+| Command          | Description                           |
+| ---------------- | ------------------------------------- |
+| `gD`             | Go to declarations                    |
+| `gd`             | Go to definitions                     |
+| `gi`             | See all implementations in telescope  |
+| `gr`             | See all references in telescope       |
+| `gt`             | Go to type definition                 |
+| `K`              | Hover                                 |
+| `␣rn`            | Rename                                |
+| `␣ls`            | Signature help                        |
+| `␣ca`            | Code action                           |
+| `␣D`             | Show file diagnostics                 |
+| `␣d`             | Show line diagnostics                 |
+| `[d`             | Go to next diagnostic                 |
+| `]d`             | Go to previous diagnostic             |
+| `␣rs`            | Restart LSP                           |
 
 ### [dressing](https://github.com/stevearc/dressing.nvim) to have a nice prompt UI
 
@@ -150,12 +145,14 @@ TODO: review the rest of the key bindings:
 
 | `␣l` | lint file |
 
-### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) for snippets:
+### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+
+Lost of different snippets and completion sources.
 
 | Command  | Description                 |
 | -------- | --------------------------- |
-| `Ctrl+k` | previous suggestion         |
-| `Ctrl+j` | next suggestion             |
+| `Ctrl+p` | previous suggestion         |
+| `Ctrl+n` | next suggestion             |
 | `Ctrl+b` | prev page                   |
 | `Ctrl+f` | next page                   |
 | `Ctrl+a` | open autosuggestion menu    |
@@ -163,9 +160,7 @@ TODO: review the rest of the key bindings:
 | `TAB`    | confirm first suggestion    |
 | `Enter`  | confirm selected suggestion |
 
-### [alpha-nvim](https://github.com/goolord/alpha-nvim) for launch screen
-
-### [auto-session](https://github.com/goolord/alpha-nvim) for session management
+### [auto-session](https://github.com/rmagatti/auto-session) for session management
 
 | Command | Description          |
 | ------- | -------------------- |
@@ -174,11 +169,9 @@ TODO: review the rest of the key bindings:
 
 ### [bufferline](https://github.com/akinsho/bufferline.nvim) for tabs inside of editor
 
-// TODO: add key bindings
-
 ### [colorizer](https://github.com/NvChad/nvim-colorizer.lua) for colorizing the color codes
 
-### [comment](https://github.com/terrortylor/nvim-comment) for commenting
+### [comment](https://github.com/numToStr/Comment.nvim) for commenting
 
 | Command | Description       |
 | ------- | ----------------- |
@@ -189,11 +182,12 @@ TODO: review the rest of the key bindings:
 
 ### [lualine](https://github.com/nvim-lualine/lualine.nvim) for status line
 
-### [nvim-autopairs](https://github.com/windwp/nvim-autopairs) for auto pairs of brackets
+### [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) for file tree
 
-### [nvim-surround](https://github.com/kylechui/nvim-surround) for surrounding the text with brackets
-
-// TODO: add key bindings
+| Command  | Description       |
+| -------- | ----------------- |
+| `␣e`     | Focus nvim-tree   |
+| `Ctrl-n` | Toggle nvim-tree  |
 
 ### [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) for icons in the file
 
@@ -205,6 +199,44 @@ TODO: review the rest of the key bindings:
 
 ### [which-key](https://github.com/folke/which-key.nvim) for showing the key bindings while you type them
 
+### [nvim-notify](https://github.com/rcarriga/nvim-notify) for beautiful notifications
+
+| Command | Description               |
+| ------- | ------------------------- |
+| `␣ds`   | Dismiss all notifications |
+| `␣fn`   | Find all notifications    |
+
+### [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) for beautiful indent lines
+
+### [copilot](https://github.com/github/copilot.vim) for AI suggestions
+
+| Command  | Description               |
+| -------- | ------------------------- |
+| `Ctrl-y` | Accept Copilot suggestion |
+
+### [dashboard](https://github.com/nvimdev/dashboard-nvim) for initial screen
+
+### [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) for training vim skills
+
+
 # TIPS to remember
 
 - `Ctrl+v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
+
+
+
+
+
+// TODO: Undo does not work properly
+// TODO: Treesitter angular
+// TODO: Replace conform and nvim-lint with none-ls
+// TODO: Replace bufferline with tabufline
+// TODO: Setup comments better (leader + /)
+// TODO: GitSigns mappings for blame etc...
+// TODO: Auto-session does not work
+// TODO: Move some of the CHAD remaps
+// TODO: Neotree vs nvim tree
+// TODO: Copilot does not seem to work...
+// Fidget mb? https://github.com/j-hui/fidget.nvim
+// Noice for notifications? https://github.com/folke/noice.nvim
+// Neotest for unit testing? https://github.com/nvim-neotest/neotest
