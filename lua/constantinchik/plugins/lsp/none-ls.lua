@@ -72,10 +72,10 @@ return {
             end,
           })
         end
+
+        -- Setup keybindings for formatting
+        vim.keymap.set("n", "<leader>mp", vim.lsp.buf.format, { desc = "Format file" })
       end,
     })
-
-    -- Setup keybindings for formatting
-    vim.keymap.set("n", "<leader>mp", vim.lsp.buf.format, { desc = "Format file" })
   end,
 }

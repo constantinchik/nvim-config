@@ -64,32 +64,32 @@ Currently the following plugins are installed:
 
 ### [telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding with the next key bindings:
 
-| Command | Description                                               |
-| ------- | --------------------------------------------------------- |
-| **Files**                                                          ||
-| `␣ff`   | Find files                                                |
-| `␣fa`   | Finds all the files in the current project.               |
-| `␣fw`   | Find using grep.                                          |
-| `␣fb`   | Find buffers.                                             |
-| `␣fh`   | Find help tags.                                           |
-| `␣fo`   | Find old files.                                           |
-| `␣fz`   | Find in current buffer.                                   |
-| `␣fs`   | Find string under cursor.                                 |
-| **LSP**                                                            ||
-| `gd`    | LSP definition                                            |
-| `gi`    | LSP implementation                                        |
-| `gr`    | LSP references                                            |
-| `gt`    | LSP type                                                  |
-| `␣D`    | Buffer diagnostics                                        |
-| **Git**                                                            ||
-| `␣cm`   | Find Git commits.                                         |
-| `␣gt`   | Find Git status                                           |
-| **Bookmarks**                                                      ||
-| `␣ma`   | Find bookmarks                                            |
-| **Undo**                                                           ||
-| `␣u`   | Undo history                                               |
-| **Notifications**                                                  ||
-| `␣fn`   | Find all notifications                                    |
+| Command           | Description                                 |
+| ----------------- | ------------------------------------------- |
+| **Files**         |                                             |
+| `␣ff`             | Find files                                  |
+| `␣fa`             | Finds all the files in the current project. |
+| `␣fw`             | Find using grep.                            |
+| `␣fb`             | Find buffers.                               |
+| `␣fh`             | Find help tags.                             |
+| `␣fo`             | Find old files.                             |
+| `␣fz`             | Find in current buffer.                     |
+| `␣fs`             | Find string under cursor.                   |
+| **LSP**           |                                             |
+| `gd`              | LSP definition                              |
+| `gi`              | LSP implementation                          |
+| `gr`              | LSP references                              |
+| `gt`              | LSP type                                    |
+| `␣D`              | Buffer diagnostics                          |
+| **Git**           |                                             |
+| `␣cm`             | Find Git commits.                           |
+| `␣gt`             | Find Git status                             |
+| **Bookmarks**     |                                             |
+| `␣ma`             | Find bookmarks                              |
+| **Undo**          |                                             |
+| `␣u`              | Undo history                                |
+| **Notifications** |                                             |
+| `␣fn`             | Find all notifications                      |
 
 ### [catppuccin](https://github.com/catppuccin/nvim) color scheme.
 
@@ -99,12 +99,12 @@ Disabled italics for theme. Added transparent background.
 
 ### [harpoon](https://github.com/ThePrimeagen/harpoon) for quick navigation between files
 
-| Command  | Description                 |
-| -------- | --------------------------- |
-| `␣hm`    | add file to harpoon         |
-| `␣hn`    | go to next harpoon file     |
-| `␣hp`    | go to previous harpoon file |
-| `␣hr`    | open harpoon menu           |
+| Command | Description                 |
+| ------- | --------------------------- |
+| `␣hm`   | add file to harpoon         |
+| `␣hn`   | go to next harpoon file     |
+| `␣hp`   | go to previous harpoon file |
+| `␣hr`   | open harpoon menu           |
 
 ### [fugitive](https://github.com/tpope/vim-fugitive) for git integration
 
@@ -116,30 +116,30 @@ Disabled italics for theme. Added transparent background.
 
 ### [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) LSP
 
-| Command          | Description                           |
-| ---------------- | ------------------------------------- |
-| `gD`             | Go to declarations                    |
-| `gd`             | Go to definitions                     |
-| `gi`             | See all implementations in telescope  |
-| `gr`             | See all references in telescope       |
-| `gt`             | Go to type definition                 |
-| `K`              | Hover                                 |
-| `␣rn`            | Rename                                |
-| `␣ls`            | Signature help                        |
-| `␣ca`            | Code action                           |
-| `␣D`             | Show file diagnostics                 |
-| `␣d`             | Show line diagnostics                 |
-| `[d`             | Go to next diagnostic                 |
-| `]d`             | Go to previous diagnostic             |
-| `␣rs`            | Restart LSP                           |
+| Command | Description                          |
+| ------- | ------------------------------------ |
+| `gD`    | Go to declarations                   |
+| `gd`    | Go to definitions                    |
+| `gi`    | See all implementations in telescope |
+| `gr`    | See all references in telescope      |
+| `gt`    | Go to type definition                |
+| `K`     | Hover                                |
+| `␣rn`   | Rename                               |
+| `␣ls`   | Signature help                       |
+| `␣ca`   | Code action                          |
+| `␣D`    | Show file diagnostics                |
+| `␣d`    | Show line diagnostics                |
+| `[d`    | Go to next diagnostic                |
+| `]d`    | Go to previous diagnostic            |
+| `␣rs`   | Restart LSP                          |
 
 ### [dressing](https://github.com/stevearc/dressing.nvim) to have a nice prompt UI
 
 ### [none-ls](https://github.com/nvimtools/none-ls.nvim) for linting and formatting
 
-| Command  | Description                 |
-| -------- | --------------------------- |
-| `␣mp`    | Format file (Make pretty)   |
+| Command | Description               |
+| ------- | ------------------------- |
+| `␣mp`   | Format file (Make pretty) |
 
 ### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
@@ -176,14 +176,21 @@ Lost of different snippets and completion sources.
 
 ### [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git integration
 
+| Command | Description                  |
+| ------- | ---------------------------- |
+| `gh`    | Stage hunk                   |
+| `gu`    | Undo stage hunk              |
+| `gb`    | Toggle blame on current line |
+| `gd`    | Diff current file            |
+
 ### [lualine](https://github.com/nvim-lualine/lualine.nvim) for status line
 
 ### [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) for file tree
 
-| Command  | Description       |
-| -------- | ----------------- |
-| `␣e`     | Focus nvim-tree   |
-| `Ctrl-n` | Toggle nvim-tree  |
+| Command  | Description      |
+| -------- | ---------------- |
+| `␣e`     | Focus nvim-tree  |
+| `Ctrl-n` | Toggle nvim-tree |
 
 ### [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) for icons in the file
 
@@ -214,24 +221,19 @@ Lost of different snippets and completion sources.
 
 ### [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) for training vim skills
 
-
 # TIPS to remember
 
 - `Ctrl+v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
-
-
-
-
 
 // TODO: Undo does not work properly
 // TODO: Treesitter angular
 // TODO: Replace bufferline with tabufline
 // TODO: Setup comments better (leader + /)
-// TODO: GitSigns mappings for blame etc...
 // TODO: Auto-session does not work
 // TODO: Move some of the CHAD remaps
 // TODO: Neotree vs nvim tree
 // TODO: Copilot does not seem to work...
+// TODO: Learn fugitive to not use git cli outside of nvim
 // Fidget mb? https://github.com/j-hui/fidget.nvim
 // Noice for notifications? https://github.com/folke/noice.nvim
 // Neotest for unit testing? https://github.com/nvim-neotest/neotest
