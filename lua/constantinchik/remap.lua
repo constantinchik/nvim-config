@@ -30,3 +30,21 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end, { desc = "Source current file" })
+
+-- Good remaps from chad
+-- Navigation in insert mode
+vim.keymap.set("i", "<C-b>", "<ESC>^i", { desc = "Beginning of line" })
+vim.keymap.set("i", "<C-e>", "<End>", { desc = "End of line" })
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left" })
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move right" })
+vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down" })
+vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move up" })
+-- Navigate windows
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window left" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window right" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window up" })
+
+vim.keymap.set("n", "<Esc>", "<cmd> noh <CR>", { desc = "Clear highlights" })
+vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", { desc = "New buffer" })

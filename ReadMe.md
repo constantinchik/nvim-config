@@ -44,7 +44,7 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `J`         | in visual mode will move the selected lines down                                                                                                          |
 | `K`         | in visual mode will move the selected lines up                                                                                                            |
-| `J`         | in normal mode will move the current line down but will remain focus on the same place                                                                    |
+| `J`         | in normal mode will join lines but will remain focus on the same place                                                                                    |
 | `Ctrl+d`    | in normal mode will move the current line down but will remain focus on the same place                                                                    |
 | `Ctrl-u`    | in normal mode will move the current line up but will remain focus on the same place                                                                      |
 | `n` and `N` | in search mode will navigate to next and previous search results accordingly but remain focus on the center of the screen                                 |
@@ -55,6 +55,22 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | `Ctrl-k`    | next quickfix                                                                                                                                             |
 | `Ctrl-j`    | prev quickfix                                                                                                                                             |
 | `␣␣`        | source current file                                                                                                                                       |
+| Navigation in insert mode                                                                                                                                              ||
+| `Ctrl-b`    | beginning of line                                                                                                                                         |
+| `Ctrl-e`    | end of line                                                                                                                                               |
+| `Ctrl-h`    | left                                                                                                                                                      |
+| `Ctrl-l`    | right                                                                                                                                                     |
+| `Ctrl-j`    | down                                                                                                                                                      |
+| `Ctrl-k`    | up                                                                                                                                                        |
+| Navigation between windows                                                                                                                                             ||
+| `Ctrl-h`    | left                                                                                                                                                      |
+| `Ctrl-l`    | right                                                                                                                                                     |
+| `Ctrl-j`    | down                                                                                                                                                      |
+| `Ctrl-k`    | up                                                                                                                                                        |
+| Other from Chad                                                                                                                                                        ||
+| `Esc`       | clear highlights                                                                                                                                          |
+| `Ctrl-s`    | save file                                                                                                                                                 |
+| `␣b`        | new buffer                                                                                                                                                |
 
 ## Plugins
 
@@ -230,7 +246,6 @@ Lost of different snippets and completion sources.
 // TODO: Replace bufferline with tabufline
 // TODO: Setup comments better (leader + /)
 // TODO: Auto-session does not work
-// TODO: Move some of the CHAD remaps
 // TODO: Neotree vs nvim tree
 // TODO: Copilot does not seem to work...
 // TODO: Learn fugitive to not use git cli outside of nvim
