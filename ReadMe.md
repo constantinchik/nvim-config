@@ -149,8 +149,6 @@ Disabled italics for theme. Added transparent background.
 | `]d`    | Go to previous diagnostic            |
 | `␣rs`   | Restart LSP                          |
 
-### [dressing](https://github.com/stevearc/dressing.nvim) to have a nice prompt UI
-
 ### [none-ls](https://github.com/nvimtools/none-ls.nvim) for linting and formatting
 
 | Command | Description               |
@@ -218,7 +216,11 @@ Lost of different snippets and completion sources.
 
 ### [which-key](https://github.com/folke/which-key.nvim) for showing the key bindings while you type them
 
+### [noice](https://github.com/folke/noice.nvim) for beautiful UI for messages cmdline and popupmenu
+
 ### [nvim-notify](https://github.com/rcarriga/nvim-notify) for beautiful notifications
+
+This extension is a part of noice, and has some keymaps configured:
 
 | Command | Description               |
 | ------- | ------------------------- |
@@ -249,6 +251,4 @@ Lost of different snippets and completion sources.
 // TODO: Neotree vs nvim tree
 // TODO: Copilot does not seem to work...
 // TODO: Learn fugitive to not use git cli outside of nvim
-// Fidget mb? https://github.com/j-hui/fidget.nvim
-// Noice for notifications? https://github.com/folke/noice.nvim
 // Neotest for unit testing? https://github.com/nvim-neotest/neotest

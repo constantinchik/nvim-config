@@ -82,6 +82,7 @@ return {
             enabled = true,
             indentscope_color = "",
           },
+          noice = true,
           notify = true,
           nvimtree = true,
           treesitter = true,
