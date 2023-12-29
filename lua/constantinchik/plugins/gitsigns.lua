@@ -6,11 +6,11 @@ return {
 
     gitsigns.setup({
       signs = {
-        add = { text = "│" },
-        change = { text = "│" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
         untracked = { text = "┆" },
       },
       signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
@@ -45,12 +45,14 @@ return {
       yadm = {
         enable = false,
       },
-      on_attach = function(bufnr)
+      on_attach = function()
         -- Setup keybindings
         vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
         vim.keymap.set("n", "<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>", { desc = "Undo stage hunk" })
         vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<CR>", { desc = "Undo stage hunk" })
         vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis<CR>", { desc = "Diff git changes" })
+        vim.keymap.set("n", "[h", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous hunk" })
+        vim.keymap.set("n", "]h", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
       end,
     })
   end,

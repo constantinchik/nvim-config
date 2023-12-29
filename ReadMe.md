@@ -205,6 +205,8 @@ Lost of different snippets and completion sources.
 | `gu`    | Undo stage hunk              |
 | `gb`    | Toggle blame on current line |
 | `gd`    | Diff current file            |
+| `[h`    | Prev hunk                    |
+| `]h`    | Next hunk                    |
 
 ### [lualine](https://github.com/nvim-lualine/lualine.nvim) for status line
 
