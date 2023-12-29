@@ -23,7 +23,7 @@ return {
           { "filetype" },
         },
       },
-      extensions = { 'nvim-tree' }
+      extensions = { "neo-tree" },
     })
   end,
 }

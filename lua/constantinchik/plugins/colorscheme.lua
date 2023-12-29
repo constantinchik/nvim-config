@@ -85,6 +85,7 @@ return {
           noice = true,
           notify = true,
           nvimtree = true,
+          neotree = true,
           treesitter = true,
           telescope = {
             enabled = true,

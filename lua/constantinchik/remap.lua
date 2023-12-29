@@ -47,4 +47,3 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window up" })
 
 vim.keymap.set("n", "<Esc>", "<cmd> noh <CR>", { desc = "Clear highlights" })
 vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", { desc = "New buffer" })

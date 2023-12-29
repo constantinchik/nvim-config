@@ -1,5 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  enabled = false, -- Replace with enabled if you want to use nvim-tree instead of neo-tree
+  event = "VeryLazy",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local nvimtree = require("nvim-tree")

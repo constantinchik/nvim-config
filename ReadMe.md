@@ -76,7 +76,6 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | Other from Chad            |                                                                                                                                                           |
 | `Esc`                      | clear highlights                                                                                                                                          |
 | `Ctrl-s`                   | save file                                                                                                                                                 |
-| `␣b`                       | new buffer                                                                                                                                                |
 
 ## Plugins
 
@@ -212,10 +211,23 @@ Lost of different snippets and completion sources.
 
 ### [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) for file tree
 
+The plugin is currently disabled in favor of neo-tree.
+
 | Command  | Description      |
 | -------- | ---------------- |
 | `␣e`     | Focus nvim-tree  |
 | `Ctrl-n` | Toggle nvim-tree |
+
+### [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) for file tree
+
+| Command         | Description                |
+| --------------- | -------------------------- |
+| `␣fe` or `␣e`   | Focus nvim-tree files      |
+| `␣be`           | Focus nvim-tree buffers    |
+| `␣ge`           | Focus nvim-tree git status |
+| `Ctrl-n`        | Toggle nvim-tree           |
+| **Window mode** |                            |
+| `D`             | Toggle diff selection      |
 
 ### [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) for icons in the file
 
@@ -266,11 +278,6 @@ This extension is a part of noice, and has some keymaps configured:
 # Open questions:
 
 - Undo does not work properly
-- Replace bufferline with tabufline
-- Auto-session does not work
-- Neotree vs nvim tree
 - Copilot does not seem to work...
-- Learn fugitive to not use git cli outside of nvim
 - Learn to use dap
 - Neotest for unit testing? https://github.com/nvim-neotest/neotest
-- Tab in cmp suggestions does not work
