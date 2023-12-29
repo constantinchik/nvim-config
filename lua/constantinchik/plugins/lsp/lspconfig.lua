@@ -60,6 +60,11 @@ return {
 
       opts.desc = "Restart LSP"
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+
+      -- Add round border to diagnostic popup
+      vim.diagnostic.config({
+        float = { border = "rounded" },
+      })
     end
 
     -- used to enable autocompletion (assign to every lsp server config)

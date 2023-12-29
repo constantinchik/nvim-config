@@ -135,15 +135,11 @@ Disabled italics for theme. Added transparent background.
 
 ### [dressing](https://github.com/stevearc/dressing.nvim) to have a nice prompt UI
 
-### [conform](https://github.com/stevearc/conform.nvim) for easy file formattins
+### [none-ls](https://github.com/nvimtools/none-ls.nvim) for linting and formatting
 
-| Command | Description |
-| ------- | ----------- |
-| `␣mp`   | format file |
-
-### [nvim-lint](https://github.com/mfussenegger/nvim-lint) foe easy file linting
-
-| `␣l` | lint file |
+| Command  | Description                 |
+| -------- | --------------------------- |
+| `␣mp`    | Format file (Make pretty)   |
 
 ### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
@@ -229,7 +225,6 @@ Lost of different snippets and completion sources.
 
 // TODO: Undo does not work properly
 // TODO: Treesitter angular
-// TODO: Replace conform and nvim-lint with none-ls
 // TODO: Replace bufferline with tabufline
 // TODO: Setup comments better (leader + /)
 // TODO: GitSigns mappings for blame etc...
