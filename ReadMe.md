@@ -40,37 +40,37 @@ the `options.lua` file contains the options for the editor.
 
 All remaps could be found in the `remap.lua` file. The following remaps are currently configured:
 
-| Command     | Description                                                                                                                                               |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `J`         | in visual mode will move the selected lines down                                                                                                          |
-| `K`         | in visual mode will move the selected lines up                                                                                                            |
-| `J`         | in normal mode will join lines but will remain focus on the same place                                                                                    |
-| `Ctrl+d`    | in normal mode will move the current line down but will remain focus on the same place                                                                    |
-| `Ctrl-u`    | in normal mode will move the current line up but will remain focus on the same place                                                                      |
-| `n` and `N` | in search mode will navigate to next and previous search results accordingly but remain focus on the center of the screen                                 |
-| `␣p`        | will paste the content but will remain it in the buffer if you are doing that on the visual selected text (instead of yanking the visually selected text) |
-| `␣y`        | will open the system clipboard registry and you can copy there                                                                                            |
-| `␣d`        | deleting to void register                                                                                                                                 |
-| `␣s`        | start replacing the word under the cursor                                                                                                                 |
-| `Ctrl-k`    | next quickfix                                                                                                                                             |
-| `Ctrl-j`    | prev quickfix                                                                                                                                             |
-| `␣␣`        | source current file                                                                                                                                       |
-| Navigation in insert mode                                                                                                                                              ||
-| `Ctrl-b`    | beginning of line                                                                                                                                         |
-| `Ctrl-e`    | end of line                                                                                                                                               |
-| `Ctrl-h`    | left                                                                                                                                                      |
-| `Ctrl-l`    | right                                                                                                                                                     |
-| `Ctrl-j`    | down                                                                                                                                                      |
-| `Ctrl-k`    | up                                                                                                                                                        |
-| Navigation between windows                                                                                                                                             ||
-| `Ctrl-h`    | left                                                                                                                                                      |
-| `Ctrl-l`    | right                                                                                                                                                     |
-| `Ctrl-j`    | down                                                                                                                                                      |
-| `Ctrl-k`    | up                                                                                                                                                        |
-| Other from Chad                                                                                                                                                        ||
-| `Esc`       | clear highlights                                                                                                                                          |
-| `Ctrl-s`    | save file                                                                                                                                                 |
-| `␣b`        | new buffer                                                                                                                                                |
+| Command                    | Description                                                                                                                                               |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `J`                        | in visual mode will move the selected lines down                                                                                                          |
+| `K`                        | in visual mode will move the selected lines up                                                                                                            |
+| `J`                        | in normal mode will join lines but will remain focus on the same place                                                                                    |
+| `Ctrl+d`                   | in normal mode will move the current line down but will remain focus on the same place                                                                    |
+| `Ctrl-u`                   | in normal mode will move the current line up but will remain focus on the same place                                                                      |
+| `n` and `N`                | in search mode will navigate to next and previous search results accordingly but remain focus on the center of the screen                                 |
+| `␣p`                       | will paste the content but will remain it in the buffer if you are doing that on the visual selected text (instead of yanking the visually selected text) |
+| `␣y`                       | will open the system clipboard registry and you can copy there                                                                                            |
+| `␣d`                       | deleting to void register                                                                                                                                 |
+| `␣s`                       | start replacing the word under the cursor                                                                                                                 |
+| `Ctrl-k`                   | next quickfix                                                                                                                                             |
+| `Ctrl-j`                   | prev quickfix                                                                                                                                             |
+| `␣␣`                       | source current file                                                                                                                                       |
+| Navigation in insert mode  |                                                                                                                                                           |
+| `Ctrl-b`                   | beginning of line                                                                                                                                         |
+| `Ctrl-e`                   | end of line                                                                                                                                               |
+| `Ctrl-h`                   | left                                                                                                                                                      |
+| `Ctrl-l`                   | right                                                                                                                                                     |
+| `Ctrl-j`                   | down                                                                                                                                                      |
+| `Ctrl-k`                   | up                                                                                                                                                        |
+| Navigation between windows |                                                                                                                                                           |
+| `Ctrl-h`                   | left                                                                                                                                                      |
+| `Ctrl-l`                   | right                                                                                                                                                     |
+| `Ctrl-j`                   | down                                                                                                                                                      |
+| `Ctrl-k`                   | up                                                                                                                                                        |
+| Other from Chad            |                                                                                                                                                           |
+| `Esc`                      | clear highlights                                                                                                                                          |
+| `Ctrl-s`                   | save file                                                                                                                                                 |
+| `␣b`                       | new buffer                                                                                                                                                |
 
 ## Plugins
 
@@ -183,10 +183,13 @@ Lost of different snippets and completion sources.
 
 ### [comment](https://github.com/numToStr/Comment.nvim) for commenting
 
-| Command | Description       |
-| ------- | ----------------- |
-| `gcc`   | comment line      |
-| `gc`    | comment selection |
+| Command | Description                  |
+| ------- | ---------------------------- |
+| `gcc`   | comment toggle current line  |
+| `gc`    | comment toggle linewise      |
+| `gbc`   | comment toggle current block |
+| `gb`    | comment toggle blockwise     |
+| `␣/`    | comment selection or line    |
 
 ### [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git integration
 
@@ -246,9 +249,9 @@ This extension is a part of noice, and has some keymaps configured:
 // TODO: Undo does not work properly
 // TODO: Treesitter angular
 // TODO: Replace bufferline with tabufline
-// TODO: Setup comments better (leader + /)
 // TODO: Auto-session does not work
 // TODO: Neotree vs nvim tree
 // TODO: Copilot does not seem to work...
 // TODO: Learn fugitive to not use git cli outside of nvim
+// TODO: Add dap
 // Neotest for unit testing? https://github.com/nvim-neotest/neotest
