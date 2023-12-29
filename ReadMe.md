@@ -23,6 +23,12 @@ To activate Copilot use the following command:
 :Copilot setup
 ```
 
+In order to make treesitter work with angular - you need to have tree-sitter-cli installed globaly on your machine. Do do that run the following command:
+
+```bash
+pnpm install -g tree-sitter-cli
+```
+
 # Explanation
 
 The configuration is split into multiple files, each of which is responsible for a specific part of the configuration.
@@ -258,7 +264,6 @@ This extension is a part of noice, and has some keymaps configured:
 # Open questions:
 
 - Undo does not work properly
-- Treesitter angular
 - Replace bufferline with tabufline
 - Auto-session does not work
 - Neotree vs nvim tree
@@ -266,3 +271,4 @@ This extension is a part of noice, and has some keymaps configured:
 - Learn fugitive to not use git cli outside of nvim
 - Learn to use dap
 - Neotest for unit testing? https://github.com/nvim-neotest/neotest
+- Tab in cmp suggestions does not work
