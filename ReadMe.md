@@ -242,16 +242,27 @@ This extension is a part of noice, and has some keymaps configured:
 
 ### [vim-be-good](https://github.com/ThePrimeagen/vim-be-good) for training vim skills
 
+### [dap](https://github.com/mfussenegger/nvim-dap) for debugging
+
+| Command | Description                       |
+| ------- | --------------------------------- |
+| `␣db`   | Toggle breakpoint on current line |
+| `␣dr`   | Run or continue the debugger      |
+
+### [dap-ui](https://github.com/rcarriga/nvim-dap-ui) UI for debugging
+
 # TIPS to remember
 
 - `Ctrl+v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
 
-// TODO: Undo does not work properly
-// TODO: Treesitter angular
-// TODO: Replace bufferline with tabufline
-// TODO: Auto-session does not work
-// TODO: Neotree vs nvim tree
-// TODO: Copilot does not seem to work...
-// TODO: Learn fugitive to not use git cli outside of nvim
-// TODO: Add dap
-// Neotest for unit testing? https://github.com/nvim-neotest/neotest
+# Open questions:
+
+- Undo does not work properly
+- Treesitter angular
+- Replace bufferline with tabufline
+- Auto-session does not work
+- Neotree vs nvim tree
+- Copilot does not seem to work...
+- Learn fugitive to not use git cli outside of nvim
+- Learn to use dap
+- Neotest for unit testing? https://github.com/nvim-neotest/neotest
