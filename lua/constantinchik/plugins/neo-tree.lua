@@ -1,42 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
-  keys = {
-    {
-      "<C-n>",
-      function()
-        require("neo-tree.command").execute({ source = "last", toggle = true })
-      end,
-      desc = "Toggle neo-tree",
-    },
-    {
-      "<leader>fe",
-      function()
-        require("neo-tree.command").execute({ source = "filesystem" })
-      end,
-      desc = "Explorer NeoTree (root dir)",
-    },
-    {
-      "<leader>e",
-      "<leader>fe",
-      desc = "Explorer NeoTree (root dir)",
-      remap = true,
-    },
-    {
-      "<leader>ge",
-      function()
-        require("neo-tree.command").execute({ source = "git_status" })
-      end,
-      desc = "Git status explorer",
-    },
-    {
-      "<leader>be",
-      function()
-        require("neo-tree.command").execute({ source = "buffers" })
-      end,
-      desc = "Buffer explorer",
-    },
-  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -178,7 +142,6 @@ return {
           -- that will be available in all sources (if not overridden in `opts[source_name].commands`)
           -- see `:h neo-tree-custom-commands-global`
           commands = {
-
             diff_files = function(state)
               local node = state.tree:get_node()
               local log = require("neo-tree.log")
@@ -218,15 +181,20 @@ return {
 
               -- Open the file in the current window
               local cc = require("neo-tree.sources.common.commands")
-              cc.open(state, function()
+              cc.open_tabnew(state, function()
                 -- Do nothing for dirs
               end)
 
-              -- Execute Gitsigns diffthis on the current file using a Lua function
-              if vim.fn.exists(":Gitsigns") == 2 then
+              if vim.fn.exists(":Gvdiffsplit") == 2 then
+                -- Try execute fugitive diffthis on the current file
+
+                vim.cmd(":Gvdiffsplit!<CR>")
+              elseif vim.fn.exists(":Gitsigns") == 2 then
+                -- Try execute Gitsigns diffthis on the current file
+
                 vim.cmd("lua require('gitsigns').diffthis()")
               else
-                vim.notify("Gitsigns is not installed.", vim.log.levels.ERROR)
+                vim.notify("Neither Fugitive nor Gitsigns are installed. Diff is not supported.", vim.log.levels.ERROR)
               end
             end,
           },
@@ -238,10 +206,7 @@ return {
               nowait = true,
             },
             mappings = {
-              ["<space>"] = {
-                "toggle_node",
-                nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-              },
+              ["<space>"] = "noop", -- Disable default toggle node
               ["<2-LeftMouse>"] = "open",
               ["<cr>"] = "open",
               ["<esc>"] = "cancel", -- close preview or floating neo-tree window
@@ -403,9 +368,29 @@ return {
                 ["os"] = { "order_by_size", nowait = false },
                 ["ot"] = { "order_by_type", nowait = false },
                 ["D"] = { "show_git_diff" },
+                ["<2-LeftMouse>"] = "show_git_diff",
+                ["<cr>"] = "show_git_diff",
               },
             },
           },
+        })
+
+        -- Add key bindings
+        vim.keymap.set("n", "<C-n>", "<cmd>Neotree last focus toggle<CR>", {
+          desc = "Toggle neo-tree",
+        })
+        vim.keymap.set("n", "<leader>fe", "<cmd>Neotree filesystem focus reveal<CR>", {
+          desc = "Explorer NeoTree (root dir)",
+        })
+        vim.keymap.set("n", "<leader>e", "<cmd>Neotree last focus reveal<CR>", {
+          desc = "Focus on NeoTree",
+          remap = true,
+        })
+        vim.keymap.set("n", "<leader>ge", "<cmd>Neotree git_status focus reveal<CR>", {
+          desc = "Git status explorer",
+        })
+        vim.keymap.set("n", "<leader>be", "<cmd>Neotree buffers focus reveal<CR>", {
+          desc = "Buffer explorer",
         })
       end,
     },

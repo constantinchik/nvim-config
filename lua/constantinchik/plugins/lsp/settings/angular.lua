@@ -26,6 +26,10 @@ local config = {
   on_new_config = function(new_config, new_root_dir)
     new_config.cmd = cmd
   end,
+  root_pattern = {
+    "angular.json",
+    "nx.json",
+  },
 }
 
 return config

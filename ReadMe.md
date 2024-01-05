@@ -209,6 +209,9 @@ Lost of different snippets and completion sources.
 
 ### [lualine](https://github.com/nvim-lualine/lualine.nvim) for status line
 
+Lualine is being setup to take full widht of the line in the bottom of your screen.
+If you do not like it or prefer to have it only for the currently focused window then just comment out the vim.o.laststatus = 3 in lualine config file.
+
 ### [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) for file tree
 
 The plugin is currently disabled in favor of neo-tree.
@@ -222,7 +225,8 @@ The plugin is currently disabled in favor of neo-tree.
 
 | Command         | Description                |
 | --------------- | -------------------------- |
-| `␣fe` or `␣e`   | Focus nvim-tree files      |
+| `␣e`            | Focus nvim-tree            |
+| `␣fe`           | Focus nvim-tree files      |
 | `␣be`           | Focus nvim-tree buffers    |
 | `␣ge`           | Focus nvim-tree git status |
 | `Ctrl-n`        | Toggle nvim-tree           |
@@ -252,11 +256,17 @@ This extension is a part of noice, and has some keymaps configured:
 
 ### [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) for beautiful indent lines
 
-### [copilot](https://github.com/github/copilot.vim) for AI suggestions
+### [copilot lua](https://github.com/zbirenbaum/copilot.lua) for AI suggestions
 
-| Command  | Description               |
-| -------- | ------------------------- |
-| `Ctrl-y` | Accept Copilot suggestion |
+| Command  | Description                             |
+| -------- | --------------------------------------- |
+| `Ctrl-y` | Accept Copilot suggestion               |
+| `Ctrl-i` | Accept first line of Copilot suggestion |
+| `Alt-]`  | Next suggestion                         |
+| `Alt-[`  | Previous suggestion                     |
+| `Ctrl-]` | Dismiss suggestion                      |
+
+If you want to disable copilot by default - use
 
 ### [dashboard](https://github.com/nvimdev/dashboard-nvim) for initial screen
 
@@ -275,9 +285,16 @@ This extension is a part of noice, and has some keymaps configured:
 
 - `Ctrl+v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
 
-# Open questions:
+# Bugs:
 
 - Undo does not work properly
-- Copilot does not seem to work...
-- Learn to use dap
+- Neotree bug when switching to git view on a specific file
+- Neotree diff in git view not working.
+- Copilot still shows with cmp
+- Unnecessary text cmp
+- Auto session does not work properly (conflicts with Dashboard)
+
+# TODO:
+
+- Configure dap and learn to use it
 - Neotest for unit testing? https://github.com/nvim-neotest/neotest

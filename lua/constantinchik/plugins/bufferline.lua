@@ -1,8 +1,5 @@
-vim.opt.termguicolors = true
-
 return {
   "akinsho/bufferline.nvim",
-  after = "catppuccin",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   version = "*",
   event = "VeryLazy",
@@ -16,17 +13,18 @@ return {
     { "<S-Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
     { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+    { "<leader>x", "<Cmd>bdelete<CR>", desc = "Close current buffer" },
   },
   opts = {
     options = {
       mode = "tabs",
       diagnostics = "nvim_lsp",
-      separator_style = "thick",
+      separator_style = "slant", -- BUG: This displays with white background...
       hover = {
         enabled = true,
         delay = 200,
         reveal = { "close" },
-      },
+      }, -- BUG: This is from help page, but does not work
       offsets = {
         {
           filetype = "NvimTree",

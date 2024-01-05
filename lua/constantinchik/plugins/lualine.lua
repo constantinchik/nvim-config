@@ -25,5 +25,7 @@ return {
       },
       extensions = { "neo-tree" },
     })
+    -- Set lualine to show statusline in full width
+    vim.o.laststatus = 3
   end,
 }

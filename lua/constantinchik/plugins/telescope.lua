@@ -61,8 +61,9 @@ return {
         path_display = { "truncate " },
         mappings = {
           i = {
+            ["<esc>"] = actions.close,
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next,     -- move to next result
+            ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
@@ -81,7 +82,7 @@ return {
           --   preview_height = 0.8,
           -- },
         },
-      }
+      },
     })
 
     -- Load extensions
@@ -111,22 +112,29 @@ return {
 
     -- Setup keymaps
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
-    vim.keymap.set("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-      { desc = "Find all" })
+    vim.keymap.set(
+      "n",
+      "<leader>fa",
+      "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+      { desc = "Find all" }
+    )
     vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Find using grep" })
     vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
     vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Find help" })
     vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find old files" })
-    vim.keymap.set("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Find in current buffer" })
+    vim.keymap.set(
+      "n",
+      "<leader>fz",
+      "<cmd>Telescope current_buffer_fuzzy_find<CR>",
+      { desc = "Find in current buffer" }
+    )
     vim.keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<CR>", { desc = "Find string under cursor" })
     -- Git
     vim.keymap.set("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Find Git commits" })
     vim.keymap.set("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Find Git status" })
     -- Bookmarks
-    vim.keymap.set("n", "<leader>gt", "<cmd>Telescope marks<CR>", { desc = "Find bookmarks" })
+    vim.keymap.set("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Find bookmarks" })
     -- Undo
     vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Find undo history" })
-
-    -- vim.keymap.set("n", "<leader>pf", "<cmd>Telescope git_files<CR>", { desc = "Fuzzy find non git-ignorred files" })
   end,
 }
