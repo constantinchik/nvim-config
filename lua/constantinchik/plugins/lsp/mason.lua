@@ -2,10 +2,12 @@ return {
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
+    local mason_tool_installer = require("mason-tool-installer")
 
     mason.setup({
       ui = {
@@ -28,47 +30,46 @@ return {
       max_concurrent_installers = 10,
     })
 
-    mason.setup({
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "pylsp",
+        "pyright",
+        "lua_ls",
+        "cssls",
+        "html",
+        "tsserver",
+        "tailwindcss",
+        "svelte",
+        "angularls",
+        "stylelint_lsp",
+        "eslint",
+        "emmet_ls",
+        "clangd",
+        "rust_analyzer",
+        "sqlls",
+      },
+      -- auto-install configured servers (with lspconfig)
+      automatic_installation = true, -- not the same as ensure_installed
+    })
+
+    mason_tool_installer.setup({
       ensure_installed = {
         -- python stuff
-        "python-lsp-server",
-        "pyright",
         "isort",
         "black",
         "pylint",
 
         -- lua stuff
-        "lua-language-server",
         "stylua",
 
         -- web dev stuff
-        "css-lsp",
-        "html-lsp",
-        "typescript-language-server",
         "prettier",
         "eslint_d",
-        "tailwindcss-language-server",
-        "svelte-language-server",
-        "angular-language-server",
-        "stylelint-lsp",
-        "eslint-lsp",
         "stylelint",
 
         -- c/cpp stuff
-        "clangd",
         "clang-format",
-
-        -- rust stuff
-        "rust-analyzer",
-
-        -- sql stuff
-        "sqlls",
       },
-    })
-
-    mason_lspconfig.setup({
-      -- auto-install configured servers (with lspconfig)
-      automatic_installation = true, -- not the same as ensure_installed
     })
   end,
 }
