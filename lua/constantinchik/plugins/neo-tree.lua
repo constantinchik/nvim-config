@@ -185,14 +185,12 @@ return {
                 -- Do nothing for dirs
               end)
 
-              if vim.fn.exists(":Gvdiffsplit") == 2 then
-                -- Try execute fugitive diffthis on the current file
-
-                vim.cmd(":Gvdiffsplit!<CR>")
-              elseif vim.fn.exists(":Gitsigns") == 2 then
+              if vim.fn.exists(":Gitsigns") == 2 then
                 -- Try execute Gitsigns diffthis on the current file
-
                 vim.cmd("lua require('gitsigns').diffthis()")
+              elseif vim.fn.exists(":Gvdiffsplit") == 2 then
+                -- Try execute fugitive diffthis on the current file
+                vim.cmd(":Gvdiffsplit!<CR>")
               else
                 vim.notify("Neither Fugitive nor Gitsigns are installed. Diff is not supported.", vim.log.levels.ERROR)
               end
@@ -316,6 +314,9 @@ return {
                 ["os"] = { "order_by_size", nowait = false },
                 ["ot"] = { "order_by_type", nowait = false },
                 ["D"] = { "diff_files" },
+                ["ga"] = "git_add_file",
+                ["gu"] = "git_unstage_file",
+                ["gr"] = "git_revert_file",
               },
               fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
                 ["<down>"] = "move_cursor_down",
@@ -354,11 +355,12 @@ return {
             window = {
               mappings = {
                 ["A"] = "git_add_all",
-                ["gu"] = "git_unstage_file",
-                ["ga"] = "git_add_file",
-                ["gr"] = "git_revert_file",
-                ["gc"] = "git_commit",
-                ["gp"] = "git_push",
+                ["a"] = "git_add_file",
+                ["U"] = "git_unstage_all", -- Does not work...
+                ["u"] = "git_unstage_file",
+                ["r"] = "git_revert_file",
+                ["c"] = "git_commit",
+                ["p"] = "git_push",
                 ["gg"] = "git_commit_and_push",
                 ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
                 ["oc"] = { "order_by_created", nowait = false },

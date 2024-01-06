@@ -12,12 +12,12 @@ local cmd = {
   "--tsProbeLocations",
   table.concat({
     angularls_path,
-    vim.uv.cwd(),
+    vim.fn.getcwd(),
   }, ","),
   "--ngProbeLocations",
   table.concat({
     angularls_path .. "/node_modules/@angular/language-server",
-    vim.uv.cwd(),
+    vim.fn.getcwd(),
   }, ","),
 }
 
