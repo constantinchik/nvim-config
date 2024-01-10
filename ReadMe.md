@@ -112,6 +112,14 @@ Currently the following plugins are installed:
 | **Notifications** |                                             |
 | `␣fn`             | Find all notifications                      |
 
+### [telescope-undo](https://github.com/debugloop/telescope-undo.nvim) for undo tree inside telescope
+
+| Command inside telescope | Description                      |
+| ------------------------ | -------------------------------- |
+| `Enter` or `Ctrl-y`      | yank additions in current change |
+| `Shift-Enter`            | yank deletions in current change |
+| `Ctrl-Enter` or `Ctrl-r` | restore to this point            |
+
 ### [catppuccin](https://github.com/catppuccin/nvim) color scheme.
 
 Disabled italics for theme. Added transparent background.
@@ -285,7 +293,6 @@ If you want to disable copilot by default - use
 
 # Bugs:
 
-- Undo does not work properly
 - Neotree bug when switching to git view on a specific file
 - Neotree diff in git view not working.
 - Copilot still shows with cmp
@@ -295,4 +302,4 @@ If you want to disable copilot by default - use
 # TODO:
 
 - Configure dap and learn to use it
-- Neotest for unit testing? https://github.com/nvim-neotest/neotest
+- Checkhealth and add it to the readme.

@@ -13,7 +13,7 @@ return {
     { "<S-Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
     { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-    { "<leader>x", "<Cmd>bdelete<CR>", desc = "Close current buffer" },
+    { "<leader>x", "<Cmd>bdelete!<CR>", desc = "Close current buffer" },
   },
   opts = {
     options = {

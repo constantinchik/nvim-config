@@ -141,61 +141,7 @@ return {
           -- A list of functions, each representing a global custom command
           -- that will be available in all sources (if not overridden in `opts[source_name].commands`)
           -- see `:h neo-tree-custom-commands-global`
-          commands = {
-            diff_files = function(state)
-              local node = state.tree:get_node()
-              local log = require("neo-tree.log")
-              state.clipboard = state.clipboard or {}
-              if diff_Node and diff_Node ~= tostring(node.id) then
-                local current_Diff = node.id
-                require("neo-tree.utils").open_file(state, diff_Node, open)
-                vim.cmd("vert diffs " .. current_Diff)
-                log.info("Diffing " .. diff_Name .. " against " .. node.name)
-                diff_Node = nil
-                current_Diff = nil
-                state.clipboard = {}
-                require("neo-tree.ui.renderer").redraw(state)
-              else
-                local existing = state.clipboard[node.id]
-                if existing and existing.action == "diff" then
-                  state.clipboard[node.id] = nil
-                  diff_Node = nil
-                  require("neo-tree.ui.renderer").redraw(state)
-                else
-                  state.clipboard[node.id] = { action = "diff", node = node }
-                  diff_Name = state.clipboard[node.id].node.name
-                  diff_Node = tostring(state.clipboard[node.id].node.id)
-                  log.info("Diff source file " .. diff_Name)
-                  require("neo-tree.ui.renderer").redraw(state)
-                end
-              end
-            end,
-            show_git_diff = function(state)
-              local node = state.tree:get_node()
-              local is_file = node.type == "file"
-
-              if not is_file then
-                vim.notify("Diff only for files", vim.log.levels.ERROR)
-                return
-              end
-
-              -- Open the file in the current window
-              local cc = require("neo-tree.sources.common.commands")
-              cc.open_tabnew(state, function()
-                -- Do nothing for dirs
-              end)
-
-              if vim.fn.exists(":Gitsigns") == 2 then
-                -- Try execute Gitsigns diffthis on the current file
-                vim.cmd("lua require('gitsigns').diffthis()")
-              elseif vim.fn.exists(":Gvdiffsplit") == 2 then
-                -- Try execute fugitive diffthis on the current file
-                vim.cmd(":Gvdiffsplit!<CR>")
-              else
-                vim.notify("Neither Fugitive nor Gitsigns are installed. Diff is not supported.", vim.log.levels.ERROR)
-              end
-            end,
-          },
+          commands = require("constantinchik.helpers.neo-tree-custom").commands,
           window = {
             position = "left",
             width = 50,
@@ -206,6 +152,7 @@ return {
             mappings = {
               ["<space>"] = "noop", -- Disable default toggle node
               ["<2-LeftMouse>"] = "open",
+              ["o"] = "system_open",
               ["<cr>"] = "open",
               ["<esc>"] = "cancel", -- close preview or floating neo-tree window
               ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
@@ -256,6 +203,9 @@ return {
           },
           nesting_rules = {},
           filesystem = {
+            components = {
+              icon = require("constantinchik.helpers.neo-tree-custom").icons_func,
+            },
             filtered_items = {
               visible = false, -- when true, they will just be displayed differently than normal items
               hide_dotfiles = false,
@@ -306,7 +256,7 @@ return {
                 ["<c-x>"] = "clear_filter",
                 ["[g"] = "prev_git_modified",
                 ["]g"] = "next_git_modified",
-                ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+                ["?"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
                 ["oc"] = { "order_by_created", nowait = false },
                 ["od"] = { "order_by_diagnostics", nowait = false },
                 ["og"] = { "order_by_git_status", nowait = false },
@@ -342,7 +292,7 @@ return {
                 ["bd"] = "buffer_delete",
                 ["<bs>"] = "navigate_up",
                 ["."] = "set_root",
-                ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+                ["?"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
                 ["oc"] = { "order_by_created", nowait = false },
                 ["od"] = { "order_by_diagnostics", nowait = false },
                 ["om"] = { "order_by_modified", nowait = false },
@@ -363,7 +313,7 @@ return {
                 ["c"] = "git_commit",
                 ["p"] = "git_push",
                 ["gg"] = "git_commit_and_push",
-                ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
+                ["?"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
                 ["oc"] = { "order_by_created", nowait = false },
                 ["od"] = { "order_by_diagnostics", nowait = false },
                 ["om"] = { "order_by_modified", nowait = false },

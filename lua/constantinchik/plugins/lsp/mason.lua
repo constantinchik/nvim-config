@@ -58,6 +58,7 @@ return {
         "isort",
         "black",
         "pylint",
+        "debugpy",
 
         -- lua stuff
         "stylua",
@@ -66,6 +67,7 @@ return {
         "prettier",
         "eslint_d",
         "stylelint",
+        "js-debug-adapter",
 
         -- c/cpp stuff
         "clang-format",

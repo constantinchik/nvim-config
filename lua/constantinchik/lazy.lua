@@ -17,6 +17,7 @@ require("lazy").setup({
   { import = "constantinchik.plugins" },
   { import = "constantinchik.plugins.lsp" },
   { import = "constantinchik.plugins.tmux" },
+  { import = "constantinchik.plugins.dap" },
 }, {
   install = {
     colorscheme = { "nightfly" },
