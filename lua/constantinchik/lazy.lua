@@ -16,6 +16,7 @@ vim.g.mapleader = " "
 require("lazy").setup({
   { import = "constantinchik.plugins" },
   { import = "constantinchik.plugins.lsp" },
+  { import = "constantinchik.plugins.tmux" },
 }, {
   install = {
     colorscheme = { "nightfly" },
