@@ -1,7 +1,5 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  opts = function()
-  end,
   config = function()
     -- local highlight = {
     --   "RainbowRed",
@@ -27,6 +25,28 @@ return {
     -- end)
     -- require("ibl").setup { indent = { highlight = highlight } }
 
-    require("ibl").setup()
+    local opts = {
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
+      scope = { enabled = false },
+      exclude = {
+        filetypes = {
+          "help",
+          "alpha",
+          "dashboard",
+          "neo-tree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+          "lazyterm",
+        },
+      },
+    }
+    require("ibl").setup(opts)
   end,
 }

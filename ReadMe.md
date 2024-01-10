@@ -191,10 +191,8 @@ Lost of different snippets and completion sources.
 | Command | Description                  |
 | ------- | ---------------------------- |
 | `gcc`   | comment toggle current line  |
-| `gc`    | comment toggle linewise      |
 | `gbc`   | comment toggle current block |
-| `gb`    | comment toggle blockwise     |
-| `␣/`    | comment selection or line    |
+| `␣/`    | comment selection            |
 
 ### [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git integration
 
