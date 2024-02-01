@@ -2,9 +2,9 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer", -- source for text in buffer
+    "hrsh7th/cmp-nvim-lua", -- source for nvim lua completion
+    "hrsh7th/cmp-nvim-lsp", -- source for neovim built-in LSP completion
+    -- "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
@@ -45,8 +45,8 @@ return {
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    require("luasnip.loaders.from_vscode").lazy_load()
+    -- -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    -- require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       completion = {
@@ -80,7 +80,13 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
+        {
+          name = "nvim_lsp",
+          -- Dont suggest Text from nvm_lsp
+          entry_filter = function(entry, ctx)
+            return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
+          end,
+        },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths

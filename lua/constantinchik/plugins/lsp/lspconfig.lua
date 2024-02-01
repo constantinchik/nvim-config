@@ -98,7 +98,14 @@ return {
       angularls = require("constantinchik.plugins.lsp.settings.angular"),
     }
     for server, config in pairs(servers) do
-      config.on_attach = on_attach
+      if config.on_attach then
+        config.on_attach = function(client, bufnr)
+          on_attach(client, bufnr)
+          config.on_attach(client, bufnr)
+        end
+      else
+        config.on_attach = on_attach
+      end
       config.capabilities = capabilities
       lspconfig[server].setup(config)
     end

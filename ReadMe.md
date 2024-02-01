@@ -185,6 +185,10 @@ Lost of different snippets and completion sources.
 
 ### [auto-session](https://github.com/rmagatti/auto-session) for session management
 
+Please note that auto-session will not load the last session automatically when running `nvim`,
+this command will run neovim and show you the dashboard. You need to manually save and restore
+sessions.
+
 | Command | Description          |
 | ------- | -------------------- |
 | `␣wr`   | restore last session |
@@ -268,8 +272,8 @@ This extension is a part of noice, and has some keymaps configured:
 | -------- | --------------------------------------- |
 | `Ctrl-y` | Accept Copilot suggestion               |
 | `Ctrl-i` | Accept first line of Copilot suggestion |
-| `Alt-]`  | Next suggestion                         |
-| `Alt-[`  | Previous suggestion                     |
+| `Ctrl-l` | Next suggestion                         |
+| `Ctrl-h` | Previous suggestion                     |
 | `Ctrl-]` | Dismiss suggestion                      |
 
 If you want to disable copilot by default - use
@@ -296,8 +300,6 @@ If you want to disable copilot by default - use
 - Neotree bug when switching to git view on a specific file
 - Neotree diff in git view not working.
 - Copilot still shows with cmp
-- Unnecessary text cmp
-- Auto session does not work properly (conflicts with Dashboard)
 
 # TODO:
 

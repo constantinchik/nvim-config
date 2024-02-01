@@ -1,6 +1,5 @@
 return {
   on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePost", {
       pattern = { "*.js", "*.ts" },
       callback = function(ctx)
