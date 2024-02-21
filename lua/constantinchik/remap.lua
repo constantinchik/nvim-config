@@ -31,6 +31,9 @@ vim.keymap.set("n", "<leader><leader>", function()
   vim.cmd("so")
 end, { desc = "Source current file" })
 
+vim.keymap.set("n", "<leader>v", "<cmd>vsplit<CR>", { desc = "Split vertically" })
+vim.keymap.set("n", "<leader>s", "<cmd>split<CR>", { desc = "Split horizontally" })
+
 -- Good remaps from chad
 -- Navigation in insert mode
 vim.keymap.set("i", "<C-b>", "<ESC>^i", { desc = "Beginning of line" })

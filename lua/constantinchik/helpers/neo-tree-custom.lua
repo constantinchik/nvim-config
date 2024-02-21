@@ -17,7 +17,7 @@ M.icons_func = function(config, node, state)
     end
   elseif node.type == "file" then
     local success, web_devicons = pcall(require, "nvim-web-devicons")
-    if vim.endswith(node.name, ".component.html") then
+    if vim.endswith(node.name, ".module.ts") then
       icon = ""
       -- highlight = "#f38ba8"
       highlight = "NeoTreeGitUnstaged"
@@ -29,6 +29,10 @@ M.icons_func = function(config, node, state)
       icon = ""
       -- highlight = "#f9e2af"
       highlight = "NeoTreeModified"
+    elseif vim.endswith(node.name, ".resolver.ts") then
+      icon = ""
+      -- highlight = "#A6E3A1"
+      highlight = "NeoTreeGitStaged"
     elseif success then
       local devicon, hl = web_devicons.get_icon(node.name, node.ext)
       icon = devicon or icon

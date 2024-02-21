@@ -51,7 +51,7 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | `J`                        | in visual mode will move the selected lines down                                                                                                          |
 | `K`                        | in visual mode will move the selected lines up                                                                                                            |
 | `J`                        | in normal mode will join lines but will remain focus on the same place                                                                                    |
-| `Ctrl+d`                   | in normal mode will move the current line down but will remain focus on the same place                                                                    |
+| `Ctrl-d`                   | in normal mode will move the current line down but will remain focus on the same place                                                                    |
 | `Ctrl-u`                   | in normal mode will move the current line up but will remain focus on the same place                                                                      |
 | `n` and `N`                | in search mode will navigate to next and previous search results accordingly but remain focus on the center of the screen                                 |
 | `␣p`                       | will paste the content but will remain it in the buffer if you are doing that on the visual selected text (instead of yanking the visually selected text) |
@@ -61,6 +61,8 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | `Ctrl-k`                   | next quickfix                                                                                                                                             |
 | `Ctrl-j`                   | prev quickfix                                                                                                                                             |
 | `␣␣`                       | source current file                                                                                                                                       |
+| `␣v`                       | vertical split                                                                                                                                            |
+| `␣s`                       | horizontal split                                                                                                                                          |
 | Navigation in insert mode  |                                                                                                                                                           |
 | `Ctrl-b`                   | beginning of line                                                                                                                                         |
 | `Ctrl-e`                   | end of line                                                                                                                                               |
@@ -103,7 +105,7 @@ Currently the following plugins are installed:
 | `gt`              | LSP type                                    |
 | `␣D`              | Buffer diagnostics                          |
 | **Git**           |                                             |
-| `␣cm`             | Find Git commits.                           |
+| `␣gc`             | Find Git commits.                           |
 | `␣gt`             | Find Git status                             |
 | **Bookmarks**     |                                             |
 | `␣ma`             | Find bookmarks                              |
@@ -174,12 +176,12 @@ Lost of different snippets and completion sources.
 
 | Command  | Description                 |
 | -------- | --------------------------- |
-| `Ctrl+p` | previous suggestion         |
-| `Ctrl+n` | next suggestion             |
-| `Ctrl+b` | prev page                   |
-| `Ctrl+f` | next page                   |
-| `Ctrl+a` | open autosuggestion menu    |
-| `Ctrl+e` | close completion menu       |
+| `Ctrl-p` | previous suggestion         |
+| `Ctrl-n` | next suggestion             |
+| `Ctrl-b` | prev page                   |
+| `Ctrl-f` | next page                   |
+| `Ctrl-a` | open autosuggestion menu    |
+| `Ctrl-e` | close completion menu       |
 | `TAB`    | confirm first suggestion    |
 | `Enter`  | confirm selected suggestion |
 
@@ -195,6 +197,17 @@ sessions.
 | `␣ws`   | save session         |
 
 ### [bufferline](https://github.com/akinsho/bufferline.nvim) for tabs inside of editor
+
+| Command           | Description                 |
+| ----------------- | --------------------------- |
+| `␣bp`             | Toggle pin buffer           |
+| `␣bP`             | Delete non-pinned buffers   |
+| `␣bo`             | Delete other buffers        |
+| `␣br`             | Delete buffers to the right |
+| `␣bl`             | Delete buffers to the left  |
+| `Shift+h` or `[b` | Previous buffer             |
+| `Shift+l` or `]b` | Nest buffer                 |
+| `␣x`              | Close current buffer        |
 
 ### [colorizer](https://github.com/NvChad/nvim-colorizer.lua) for colorizing the color codes
 
@@ -229,7 +242,7 @@ The plugin is currently disabled in favor of neo-tree.
 | Command  | Description      |
 | -------- | ---------------- |
 | `␣e`     | Focus nvim-tree  |
-| `Ctrl-n` | Toggle nvim-tree |
+| `Ctrl-e` | Toggle nvim-tree |
 
 ### [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) for file tree
 
@@ -249,7 +262,7 @@ The plugin is currently disabled in favor of neo-tree.
 
 | Command | Description              |
 | ------- | ------------------------ |
-| `␣sm`   | minimize/maximize window |
+| `␣mx`   | minimize/maximize window |
 
 ### [which-key](https://github.com/folke/which-key.nvim) for showing the key bindings while you type them
 
@@ -261,7 +274,7 @@ This extension is a part of noice, and has some keymaps configured:
 
 | Command | Description               |
 | ------- | ------------------------- |
-| `␣ds`   | Dismiss all notifications |
+| `␣nd`   | Dismiss all notifications |
 | `␣fn`   | Find all notifications    |
 
 ### [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) for beautiful indent lines
@@ -293,7 +306,7 @@ If you want to disable copilot by default - use
 
 # TIPS to remember
 
-- `Ctrl+v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
+- `Ctrl-v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
 
 # Bugs:
 

@@ -112,7 +112,7 @@ return {
     )
     vim.keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<CR>", { desc = "Find string under cursor" })
     -- Git
-    vim.keymap.set("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Find Git commits" })
+    vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Find Git commits" })
     vim.keymap.set("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Find Git status" })
     -- Bookmarks
     vim.keymap.set("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Find bookmarks" })
