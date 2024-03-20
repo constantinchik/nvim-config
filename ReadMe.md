@@ -164,11 +164,17 @@ Disabled italics for theme. Added transparent background.
 | `]d`    | Go to previous diagnostic            |
 | `␣rs`   | Restart LSP                          |
 
-### [none-ls](https://github.com/nvimtools/none-ls.nvim) for linting and formatting
+### [conform](https://github.com/stevearc/conform.nvim) for formatting
 
 | Command | Description               |
 | ------- | ------------------------- |
 | `␣mp`   | Format file (Make pretty) |
+
+### [nvim-lint](https://github.com/mfussenegger/nvim-lint) for linting
+
+| Command | Description     |
+| ------- | --------------- |
+| `␣ll`   | Lint file       |
 
 ### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
@@ -284,7 +290,7 @@ This extension is a part of noice, and has some keymaps configured:
 | Command  | Description                             |
 | -------- | --------------------------------------- |
 | `Ctrl-y` | Accept Copilot suggestion               |
-| `Ctrl-i` | Accept first line of Copilot suggestion |
+| `Ctrl-t` | Accept first line of Copilot suggestion |
 | `Ctrl-l` | Next suggestion                         |
 | `Ctrl-h` | Previous suggestion                     |
 | `Ctrl-]` | Dismiss suggestion                      |

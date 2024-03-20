@@ -2,7 +2,8 @@ return {
   "rcarriga/nvim-dap-ui",
   event = "VeryLazy",
   dependencies = {
-    { "mfussenegger/nvim-dap" },
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
     require("constantinchik.plugins.dap.settings.python"),
   },
   config = function()
