@@ -50,3 +50,8 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window up" })
 
 vim.keymap.set("n", "<Esc>", "<cmd> noh <CR>", { desc = "Clear highlights" })
 vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", { desc = "Save file" })
+
+-- Nice to have
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Write" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
+vim.keymap.set("n", "<leader>x", "<cmd>x<CR>", { desc = "Write and Quit" })
