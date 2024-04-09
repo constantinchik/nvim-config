@@ -4,6 +4,7 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "windwp/nvim-ts-autotag",
   },
   config = function()
     local treesitter = require("nvim-treesitter.configs")
@@ -22,6 +23,7 @@ return {
         "markdown",
         "markdown_inline",
         "svelte",
+        "tsx",
         "vim",
         "dockerfile",
         "gitignore",
@@ -29,6 +31,7 @@ return {
         "rust",
         "vimdoc",
         "query",
+        "c",
       },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -50,6 +53,8 @@ return {
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
       },
+      indent = { enable = true },
+      autotag = { enable = true },
     })
   end,
 }

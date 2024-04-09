@@ -270,7 +270,8 @@ return {
                 ["on"] = { "order_by_name", nowait = false },
                 ["os"] = { "order_by_size", nowait = false },
                 ["ot"] = { "order_by_type", nowait = false },
-                ["D"] = { "diff_files" },
+                ["D"] = { "diff_files" }, -- Custom function
+                ["gd"] = { "show_git_diff" }, -- Custom function
                 ["ga"] = "git_add_file",
                 ["gu"] = "git_unstage_file",
                 ["gr"] = "git_revert_file",
@@ -313,7 +314,7 @@ return {
               mappings = {
                 ["A"] = "git_add_all",
                 ["a"] = "git_add_file",
-                ["U"] = "git_unstage_all", -- Does not work...
+                ["U"] = "git_unstage_all", -- Custom function
                 ["u"] = "git_unstage_file",
                 ["r"] = "git_revert_file",
                 ["c"] = "git_commit",
@@ -326,9 +327,10 @@ return {
                 ["on"] = { "order_by_name", nowait = false },
                 ["os"] = { "order_by_size", nowait = false },
                 ["ot"] = { "order_by_type", nowait = false },
-                ["D"] = { "show_git_diff" },
-                ["<2-LeftMouse>"] = "show_git_diff",
-                ["<cr>"] = "show_git_diff",
+                ["D"] = { "show_git_diff" }, -- Custom function
+                ["gd"] = { "show_git_diff" }, -- Custom function
+                ["<2-LeftMouse>"] = "show_git_diff", -- Custom function
+                ["<cr>"] = "show_git_diff", -- Custom function
               },
             },
           },

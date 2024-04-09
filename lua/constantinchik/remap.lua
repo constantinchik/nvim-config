@@ -11,6 +11,7 @@ vim.keymap.set("x", "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
 vim.keymap.set("x", "<leader>d", [["_d]], { desc = "Delete to void register" })
 
 -- Normal mode
+vim.keymap.set("n", "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines but remain focus" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
@@ -20,6 +21,8 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Next quickfix" })
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Previous quickfix" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Next location" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Previous location" })
+vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number under cursor" })
+vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number under cursor" })
 vim.keymap.set(
   "n",
   "<leader>s",

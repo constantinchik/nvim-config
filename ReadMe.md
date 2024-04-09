@@ -55,6 +55,7 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | `Ctrl-u`                   | in normal mode will move the current line up but will remain focus on the same place                                                                      |
 | `n` and `N`                | in search mode will navigate to next and previous search results accordingly but remain focus on the center of the screen                                 |
 | `␣p`                       | will paste the content but will remain it in the buffer if you are doing that on the visual selected text (instead of yanking the visually selected text) |
+| `␣p`                       | will paste from system clipboard in normal mode                                                                                                           |
 | `␣y`                       | will open the system clipboard registry and you can copy there                                                                                            |
 | `␣d`                       | deleting to void register                                                                                                                                 |
 | `␣s`                       | start replacing the word under the cursor                                                                                                                 |
@@ -63,6 +64,8 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | `␣␣`                       | source current file                                                                                                                                       |
 | `␣v`                       | vertical split                                                                                                                                            |
 | `␣s`                       | horizontal split                                                                                                                                          |
+| `␣+`                       | increment a number under cursor (same as Ctrl+a)                                                                                                          |
+| `␣-`                       | decrement a number under cursor (same as Ctrl+x)                                                                                                          |
 | Navigation in insert mode  |                                                                                                                                                           |
 | `Ctrl-b`                   | beginning of line                                                                                                                                         |
 | `Ctrl-e`                   | end of line                                                                                                                                               |
@@ -75,6 +78,8 @@ All remaps could be found in the `remap.lua` file. The following remaps are curr
 | `Ctrl-l`                   | right                                                                                                                                                     |
 | `Ctrl-j`                   | down                                                                                                                                                      |
 | `Ctrl-k`                   | up                                                                                                                                                        |
+| `␣s`                       | split horizontaly                                                                                                                                         |
+| `␣v`                       | split vertically                                                                                                                                          |
 | Other from Chad            |                                                                                                                                                           |
 | `Esc`                      | clear highlights                                                                                                                                          |
 | `Ctrl-s`                   | save file                                                                                                                                                 |
@@ -98,6 +103,7 @@ Currently the following plugins are installed:
 | `␣fo`             | Find old files.                             |
 | `␣fz`             | Find in current buffer.                     |
 | `␣fs`             | Find string under cursor.                   |
+| `␣ft`             | Find TODOs                                  |
 | **LSP**           |                                             |
 | `gd`              | LSP definition                              |
 | `gi`              | LSP implementation                          |
@@ -172,9 +178,9 @@ Disabled italics for theme. Added transparent background.
 
 ### [nvim-lint](https://github.com/mfussenegger/nvim-lint) for linting
 
-| Command | Description     |
-| ------- | --------------- |
-| `␣ll`   | Lint file       |
+| Command | Description |
+| ------- | ----------- |
+| `␣ll`   | Lint file   |
 
 ### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
@@ -206,13 +212,14 @@ sessions.
 
 | Command           | Description                 |
 | ----------------- | --------------------------- |
+| `␣bn`             | Open new tab                |
 | `␣bp`             | Toggle pin buffer           |
 | `␣bP`             | Delete non-pinned buffers   |
 | `␣bo`             | Delete other buffers        |
 | `␣br`             | Delete buffers to the right |
 | `␣bl`             | Delete buffers to the left  |
 | `Shift+h` or `[b` | Previous buffer             |
-| `Shift+l` or `]b` | Nest buffer                 |
+| `Shift+l` or `]b` | Next buffer                 |
 | `␣x`              | Close current buffer        |
 
 ### [colorizer](https://github.com/NvChad/nvim-colorizer.lua) for colorizing the color codes
@@ -229,10 +236,12 @@ sessions.
 
 | Command | Description                  |
 | ------- | ---------------------------- |
-| `gh`    | Stage hunk                   |
-| `gu`    | Undo stage hunk              |
-| `gb`    | Toggle blame on current line |
-| `gd`    | Diff current file            |
+| `␣gh`   | Stage hunk                   |
+| `␣gu`   | Undo stage hunk              |
+| `␣gb`   | Blame current line           |
+| `␣gB`   | Toggle blame on current line |
+| `␣gd`   | Diff current file            |
+| `␣gD`   | Diff current file with ~     |
 | `[h`    | Prev hunk                    |
 | `]h`    | Next hunk                    |
 
@@ -310,17 +319,40 @@ If you want to disable copilot by default - use
 
 ### [dap-ui](https://github.com/rcarriga/nvim-dap-ui) UI for debugging
 
+### [todo-comments](https://github.com/folke/todo-comments.nvim) for TODO comments
+
+| Command | Description           |
+| ------- | --------------------- |
+| `]t`    | Next todo comment     |
+| `[t`    | Previous todo comment |
+
+### [surround](https://github.com/kylechui/nvim-surround) For easy surrounding
+
+| Old text                    | Command   | New text                |
+| --------------------------- | --------- | ----------------------- |
+| surr\*ound_words            | ysiw)     | (surround_words)        |
+| \*make strings              | ys$"      | "make strings"          |
+| [delete ar*ound me!]        | ds]       | delete around me!       |
+| `remove <b>HTML t\*ags</b>` | dst       | remove HTML tags        |
+| 'change quot\*es'           | cs'"      | "change quotes"         |
+| `<b>or tag\* types</b>`     | csth1<CR> | `<h1>or tag types</h1>` |
+| delete(functi\*on calls)    | dsf       | function calls          |
+
 # TIPS to remember
 
 - `Ctrl-v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
-
-# Bugs:
-
-- Neotree bug when switching to git view on a specific file
-- Neotree diff in git view not working.
-- Copilot still shows with cmp
+- In telescope you can use tab to select multiple files and `Ctrl-q` to create a quickfix list out of them.
+- Do not forget to find TODOs using ` ft`
+- Use DAP for debugging
+- To debug and see where the keybinding (repam) used run `:imap <C-l>` for vim and `:nmap <leader>db`
 
 # TODO:
 
-- Configure dap and learn to use it
+- Neotree bug when switching to git view on a specific file
+- Copilot still shows with cmp
 - Checkhealth and add it to the readme.
+- Quickfix is not modifiable by default and requires `:set ma` to be able to delete items.
+- Autosession does not work well with neo-tree.
+- Bufferline slant still looks odd...
+- Mb add Trouble for quick diagnostics in whole project?
+- Configure Git diff `Gvdiffsplit` to show the complete file

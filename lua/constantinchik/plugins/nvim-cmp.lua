@@ -10,43 +10,14 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
-    {
-      "windwp/nvim-autopairs",
-      event = { "InsertEnter" },
-      dependencies = {
-        "hrsh7th/nvim-cmp",
-      },
-      config = function()
-        -- import nvim-autopairs
-        local autopairs = require("nvim-autopairs")
-
-        -- configure autopairs
-        autopairs.setup({
-          check_ts = true, -- enable treesitter
-          ts_config = {
-            lua = { "string" }, -- don't add pairs in lua string treesitter nodes
-            javascript = { "template_string" }, -- don't add pairs in javscript template_string treesitter nodes
-          },
-        })
-
-        -- import nvim-autopairs completion functionality
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-        -- import nvim-cmp plugin (completions plugin)
-        local cmp = require("cmp")
-
-        -- make autopairs and completion work together
-        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-      end,
-    },
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
-    -- -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    -- require("luasnip.loaders.from_vscode").lazy_load()
+    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       completion = {

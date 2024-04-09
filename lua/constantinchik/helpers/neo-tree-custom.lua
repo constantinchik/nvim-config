@@ -84,7 +84,11 @@ M.commands.diff_files = function(state)
 end
 
 M.commands.show_git_diff = function(state)
+  -- some variables. use any if you want
   local node = state.tree:get_node()
+  -- local abs_path = node.path
+  -- local rel_path = vim.fn.fnamemodify(abs_path, ":~:.")
+  -- local file_name = node.name
   local is_file = node.type == "file"
 
   if not is_file then
@@ -94,18 +98,25 @@ M.commands.show_git_diff = function(state)
 
   -- Open the file in the current window
   local cc = require("neo-tree.sources.common.commands")
-  cc.open_tabnew(state, function()
+  cc.open(state, function()
     -- Do nothing for dirs
   end)
 
-  if vim.fn.exists(":Gitsigns") == 2 then
-    -- Try execute Gitsigns diffthis on the current file
-    vim.cmd("lua require('gitsigns').diffthis()")
-  elseif vim.fn.exists(":Gvdiffsplit") == 2 then
+  if vim.fn.exists(":Gvdiffsplit") == 2 then
     -- Try execute fugitive diffthis on the current file
-    vim.cmd(":Gvdiffsplit!<CR>")
+    vim.cmd([[Gvdiffsplit]])
+    require("neo-tree.command").execute({ action = "close" })
+  elseif vim.fn.exists(":Gitsigns") == 2 then
+    -- Try execute Gitsigns diffthis on the current file
+    vim.cmd("lua require('gitsigns').diffthis()") -- BUG: This works bad
   else
     vim.notify("Neither Fugitive nor Gitsigns are installed. Diff is not supported.", vim.log.levels.ERROR)
+  end
+end
+
+M.commands.git_unstage_all = function(state)
+  if vim.fn.exists(":Git") == 2 then
+    vim.cmd("Git reset")
   end
 end
 

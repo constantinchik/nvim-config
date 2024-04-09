@@ -4,6 +4,7 @@ return {
   version = "*",
   event = "VeryLazy",
   keys = {
+    { "<leader>bn", "<Cmd>tabnew<CR>", desc = "Open new tab" },
     { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin tab" },
     { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
     { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },

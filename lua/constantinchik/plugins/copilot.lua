@@ -18,8 +18,8 @@ return {
           accept = "<C-y>",
           accept_word = false,
           accept_line = "<C-t>",
-          next = "<C-l>",
-          prev = "<C-h>",
+          -- next = "<C-L>", -- TODO: Think about a better keybinding for this as it conflicts with navigation
+          -- prev = "<C-H>",
           dismiss = "<C-]>",
         },
       },
