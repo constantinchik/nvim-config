@@ -340,6 +340,9 @@ return {
         vim.keymap.set("n", "<C-e>", "<cmd>Neotree last focus toggle<CR>", {
           desc = "Toggle neo-tree",
         })
+        vim.keymap.set("i", "<C-e>", "<cmd>Neotree last focus toggle<CR>", {
+          desc = "Toggle neo-tree",
+        })
         vim.keymap.set("n", "<leader>fe", "<cmd>Neotree filesystem focus reveal<CR>", {
           desc = "Explorer NeoTree (root dir)",
         })

@@ -29,6 +29,18 @@ In order to make treesitter work with angular - you need to have tree-sitter-cli
 pnpm install -g tree-sitter-cli
 ```
 
+In order to see the [images](https://github.com/3rd/image.nvim) in your terminal you need to use the kitty terminal and have the [imagemagick installed](https://github.com/3rd/image.nvim#installing-imagemagick):
+
+```bash
+brew install imagemagick # Use your package manager for this command
+```
+
+If you have this problem "image.nvim: magick rock not found" - try rebuilding the package using this command inside neovim:
+
+```
+:Lazy build luarocks.nvim
+```
+
 # Explanation
 
 The configuration is split into multiple files, each of which is responsible for a specific part of the configuration.
@@ -337,6 +349,8 @@ If you want to disable copilot by default - use
 | 'change quot\*es'           | cs'"      | "change quotes"         |
 | `<b>or tag\* types</b>`     | csth1<CR> | `<h1>or tag types</h1>` |
 | delete(functi\*on calls)    | dsf       | function calls          |
+
+### [image](https://github.com/3rd/image.nvim) To preview images in kitty terminal
 
 # TIPS to remember
 
