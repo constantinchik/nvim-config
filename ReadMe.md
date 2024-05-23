@@ -41,6 +41,14 @@ If you have this problem "image.nvim: magick rock not found" - try rebuilding th
 :Lazy build luarocks.nvim
 ```
 
+or try installing magick via:
+
+```bash
+luarocks --lua-version=5.1 install magick
+```
+
+as per [this comment](https://github.com/3rd/image.nvim/issues/91#issuecomment-2065165485)
+
 # Explanation
 
 The configuration is split into multiple files, each of which is responsible for a specific part of the configuration.
