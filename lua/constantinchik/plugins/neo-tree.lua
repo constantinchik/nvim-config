@@ -144,7 +144,7 @@ return {
           commands = require("constantinchik.helpers.neo-tree-custom").commands,
           window = {
             position = "left",
-            width = 50,
+            width = 35,
             mapping_options = {
               noremap = true,
               nowait = true,

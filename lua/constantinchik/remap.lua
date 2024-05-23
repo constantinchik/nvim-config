@@ -6,7 +6,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- x mode
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste over visual selection" })
+-- vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste over visual selection" })
+vim.keymap.set("x", "<leader>p", [["+p]], { desc = "Paste from system clipboard over visual selection" })
 vim.keymap.set("x", "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
 vim.keymap.set("x", "<leader>d", [["_d]], { desc = "Delete to void register" })
 

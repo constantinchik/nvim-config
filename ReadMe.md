@@ -184,9 +184,9 @@ Disabled italics for theme. Added transparent background.
 
 ### [conform](https://github.com/stevearc/conform.nvim) for formatting
 
-| Command | Description               |
-| ------- | ------------------------- |
-| `␣mp`   | Format file (Make pretty) |
+| Command | Description   |
+| ------- | ------------- |
+| `␣bf`   | Format buffer |
 
 ### [nvim-lint](https://github.com/mfussenegger/nvim-lint) for linting
 
@@ -351,6 +351,12 @@ If you want to disable copilot by default - use
 | delete(functi\*on calls)    | dsf       | function calls          |
 
 ### [image](https://github.com/3rd/image.nvim) To preview images in kitty terminal
+
+### [markdown-preview](https://github.com/iamcco/markdown-preview.nvim) To preview markdown files
+
+| Command | Description           |
+| ------- | --------------------- |
+| `␣mp`   | Preview Markdown file |
 
 # TIPS to remember
 
