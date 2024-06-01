@@ -366,6 +366,12 @@ If you want to disable copilot by default - use
 | ------- | --------------------- |
 | `␣mp`   | Preview Markdown file |
 
+### [lazygit](https://github.com/kdheepak/lazygit.nvim) To work with git in the lazygit UI
+
+| Command | Description   |
+| ------- | ------------- |
+| `␣lg`   | Open lazy git |
+
 # TIPS to remember
 
 - `Ctrl-v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
