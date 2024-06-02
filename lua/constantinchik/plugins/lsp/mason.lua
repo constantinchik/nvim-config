@@ -47,6 +47,8 @@ return {
         "clangd",
         "rust_analyzer",
         "sqlls",
+        "bashls",
+        "ruby_lsp",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -68,9 +70,13 @@ return {
         "eslint_d",
         "stylelint",
         "js-debug-adapter",
+        "chrome-debug-adapter",
 
         -- c/cpp stuff
         "clang-format",
+
+        -- scripting stuff
+        "bash-debug-adapter",
       },
     })
   end,
