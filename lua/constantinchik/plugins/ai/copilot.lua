@@ -3,6 +3,7 @@ return {
   cmd = "Copilot",
   build = ":Copilot auth",
   event = "InsertEnter",
+  enabled = false,
   config = function()
     require("copilot").setup({
       panel = {

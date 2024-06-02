@@ -372,6 +372,13 @@ If you want to disable copilot by default - use
 | ------- | ------------- |
 | `␣lg`   | Open lazy git |
 
+### [gen.nvim](https://github.com/David-Kunz/gen.nvim) To have local AI suggestions
+
+| Command  | Description       |
+| -------- | ----------------- |
+| `␣ai`    | Open AI Menu      |
+| `Ctrl-r` | Reload suggestion |
+
 # TIPS to remember
 
 - `Ctrl-v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
