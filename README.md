@@ -112,33 +112,31 @@ Currently the following plugins are installed:
 
 ### [telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding with the next key bindings:
 
-| Command           | Description                                 |
-| ----------------- | ------------------------------------------- |
-| **Files**         |                                             |
-| `␣ff`             | Find files                                  |
-| `␣fa`             | Finds all the files in the current project. |
-| `␣fw`             | Find using grep.                            |
-| `␣fb`             | Find buffers.                               |
-| `␣fh`             | Find help tags.                             |
-| `␣fo`             | Find old files.                             |
-| `␣fz`             | Find in current buffer.                     |
-| `␣fs`             | Find string under cursor.                   |
-| `␣ft`             | Find TODOs                                  |
-| **LSP**           |                                             |
-| `gd`              | LSP definition                              |
-| `gi`              | LSP implementation                          |
-| `gr`              | LSP references                              |
-| `gt`              | LSP type                                    |
-| `␣D`              | Buffer diagnostics                          |
-| **Git**           |                                             |
-| `␣gc`             | Find Git commits.                           |
-| `␣gt`             | Find Git status                             |
-| **Bookmarks**     |                                             |
-| `␣ma`             | Find bookmarks                              |
-| **Undo**          |                                             |
-| `␣u`              | Undo history                                |
-| **Notifications** |                                             |
-| `␣fn`             | Find all notifications                      |
+| Command   | Description                                 |
+| --------- | ------------------------------------------- |
+| **Files** |                                             |
+| `␣ff`     | Find files                                  |
+| `␣fa`     | Finds all the files in the current project. |
+| `␣fw`     | Find using grep.                            |
+| `␣fb`     | Find buffers.                               |
+| `␣fh`     | Find help tags.                             |
+| `␣fo`     | Find old files.                             |
+| `␣fz`     | Find in current buffer.                     |
+| `␣fs`     | Find string under cursor.                   |
+| `␣ft`     | Find TODOs                                  |
+| `␣fb`     | Find bookmarks                              |
+| `␣fj`     | Find Harpoon files                          |
+| `␣u`      | Undo history                                |
+| `␣fn`     | Find all notifications                      |
+| **LSP**   |                                             |
+| `gd`      | LSP definition                              |
+| `gi`      | LSP implementation                          |
+| `gr`      | LSP references                              |
+| `gt`      | LSP type                                    |
+| `␣D`      | Buffer diagnostics                          |
+| **Git**   |                                             |
+| `␣gc`     | Find Git commits.                           |
+| `␣gt`     | Find Git status                             |
 
 ### [telescope-undo](https://github.com/debugloop/telescope-undo.nvim) for undo tree inside telescope
 
@@ -156,12 +154,13 @@ Disabled italics for theme. Added transparent background.
 
 ### [harpoon](https://github.com/ThePrimeagen/harpoon) for quick navigation between files
 
-| Command | Description                 |
-| ------- | --------------------------- |
-| `␣hm`   | add file to harpoon         |
-| `␣hn`   | go to next harpoon file     |
-| `␣hp`   | go to previous harpoon file |
-| `␣hr`   | open harpoon menu           |
+| Command | Description                     |
+| ------- | ------------------------------- |
+| `␣hm`   | add file to harpoon             |
+| `␣hn`   | go to next harpoon file         |
+| `␣hp`   | go to previous harpoon file     |
+| `␣hh`   | open harpoon menu               |
+| `␣fj`   | open harpoon files in telescope |
 
 ### [fugitive](https://github.com/tpope/vim-fugitive) for git integration
 
@@ -378,6 +377,16 @@ If you want to disable copilot by default - use
 | -------- | ----------------- |
 | `␣ai`    | Open AI Menu      |
 | `Ctrl-r` | Reload suggestion |
+
+### [bookmarks.nvim](https://github.com/tomasky/bookmarks.nvim) Bookmarks
+
+| Command | Description                                 |
+| ------- | ------------------------------------------- |
+| `␣mm`   | Add or remove bookmark at current line      |
+| `␣mi`   | Add or edit mark annotation at current line |
+| `␣mc`   | Clean all marks in local buffer             |
+| `␣mn`   | Jump to next mark in local buffer           |
+| `␣mp`   | Jump to previous mark in local buffer       |
 
 # TIPS to remember
 

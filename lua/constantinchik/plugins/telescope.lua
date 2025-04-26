@@ -10,6 +10,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "debugloop/telescope-undo.nvim",
     "folke/todo-comments.nvim",
+    "tomasky/bookmarks.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -96,6 +97,7 @@ return {
     -- Load extensions
     telescope.load_extension("fzf")
     telescope.load_extension("undo")
+    telescope.load_extension("bookmarks")
 
     -- Customize the appearance of telescope
     require("constantinchik.helpers.telescope").customize()
@@ -124,7 +126,10 @@ return {
     vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Find Git commits" })
     vim.keymap.set("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Find Git status" })
     -- Bookmarks
-    vim.keymap.set("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Find bookmarks" })
+    -- vim.keymap.set("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Find bookmarks" })
+    vim.keymap.set("n", "<leader>fb", "<cmd>Telescope bookmarks list<CR>", { desc = "Find bookmarks" })
+    -- Harpoon
+    vim.keymap.set("n", "<leader>fj", "<cmd>Telescope harpoon marks<CR>", { desc = "Find harpoon files" })
     -- Undo
     vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Find undo history" })
   end,

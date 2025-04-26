@@ -86,7 +86,7 @@ return {
     -- Configure servers:
     local servers = {
       html = {},
-      tsserver = {},
+      ts_ls = {},
       cssls = {},
       tailwindcss = {},
       svelte = require("constantinchik.plugins.lsp.settings.svelte"),

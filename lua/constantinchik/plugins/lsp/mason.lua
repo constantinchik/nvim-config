@@ -37,7 +37,7 @@ return {
         "lua_ls",
         "cssls",
         "html",
-        "tsserver",
+        "ts_ls",
         "tailwindcss",
         "svelte",
         "angularls",
@@ -48,7 +48,6 @@ return {
         "rust_analyzer",
         "sqlls",
         "bashls",
-        "ruby_lsp",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
