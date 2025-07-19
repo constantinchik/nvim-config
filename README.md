@@ -388,6 +388,10 @@ If you want to disable copilot by default - use
 | `␣mn`   | Jump to next mark in local buffer           |
 | `␣mp`   | Jump to previous mark in local buffer       |
 
+### [editorconfig-vim](https://github.com/editorconfig/editorconfig-vim) EditorConfig support
+
+Automatically applies project-specific indentation and formatting settings from `.editorconfig` files.
+
 # TIPS to remember
 
 - `Ctrl-v` | vertical edit mode. CONFLICTS WITH SYSTEM PASTE ON WINDOWS
