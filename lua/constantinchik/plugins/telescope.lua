@@ -39,14 +39,14 @@ return {
         layout_config = {
           horizontal = {
             prompt_position = "top",
-            preview_width = 0.55,
-            results_width = 0.8,
+            preview_width = 0.65,
+            results_width = 0.35,
           },
           vertical = {
             mirror = false,
           },
-          width = 0.87,
-          height = 0.80,
+          width = 0.95,
+          height = 0.90,
           preview_cutoff = 120,
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -60,7 +60,15 @@ return {
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-        path_display = { "truncate " },
+        path_display = function(opts, path)
+          local tail = require("telescope.utils").path_tail(path)
+          local parent = vim.fn.fnamemodify(path, ":h:t")
+          if parent == "." or parent == "" then
+            return tail
+          else
+            return parent .. "/" .. tail
+          end
+        end,
         mappings = {
           i = {
             ["<esc>"] = actions.close,
