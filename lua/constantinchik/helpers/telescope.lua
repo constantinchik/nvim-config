@@ -8,14 +8,15 @@ M.customize = function()
 
     TelescopePromptPrefix = { bg = colors.surface0 },
     TelescopePromptNormal = { bg = colors.surface0 },
-    TelescopeResultsNormal = { bg = colors.mantle },
+    TelescopeResultsNormal = {},
     TelescopePreviewNormal = { bg = colors.mantle },
     TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
-    TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+    TelescopeResultsBorder = { fg = colors.surface1 },
     TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
     TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
-    TelescopeResultsTitle = { fg = colors.mantle },
+    TelescopeResultsTitle = { fg = colors.surface1 },
     TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
+    TelescopeResultsComment = { fg = colors.overlay0 },
   }
   for hl, col in pairs(TelescopeColor) do
     vim.api.nvim_set_hl(0, hl, col)
