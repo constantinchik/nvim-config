@@ -18,37 +18,27 @@ return {
 
         require("neo-tree").setup({
           source_selector = {
-            winbar = true, -- toggle to show selector on winbar
-            statusline = false, -- toggle to show selector on statusline
-            show_scrolled_off_parent_node = false, -- boolean
-            sources = { -- table
-              {
-                source = "filesystem", -- string
-                display_name = " 󰉓 Files ", -- string | nil
-              },
-              {
-                source = "buffers", -- string
-                display_name = " 󰈚 Buffers ", -- string | nil
-              },
-              {
-                source = "git_status", -- string
-                display_name = " 󰊢 Git ", -- string | nil
-              },
+            winbar = false, -- disable selector bar
+            statusline = false,
+          },
+          default_component_configs = {
+            name = {
+              trailing_slash = false,
+              use_git_status_colors = true,
+              highlight = "NeoTreeFileName",
             },
-            content_layout = "start", -- string
-            tabs_layout = "equal", -- string
-            truncation_character = "…", -- string
-            tabs_min_width = nil, -- int | nil
-            tabs_max_width = nil, -- int | nil
-            padding = 0, -- int | { left: int, right: int }
-            separator = { left = "▏", right = "▕" }, -- string | { left: string, right: string, override: string | nil }
-            separator_active = nil, -- string | { left: string, right: string, override: string | nil } | nil
-            show_separator_on_edge = false, -- boolean
-            highlight_tab = "NeoTreeTabInactive", -- string
-            highlight_tab_active = "NeoTreeTabActive", -- string
-            highlight_background = "NeoTreeTabInactive", -- string
-            highlight_separator = "NeoTreeTabSeparatorInactive", -- string
-            highlight_separator_active = "NeoTreeTabSeparatorActive", -- string
+          },
+          event_handlers = {
+            {
+              event = "neo_tree_buffer_enter",
+              handler = function()
+                local folder_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+                local icon = ""
+                local padding = math.floor((35 - #icon - #folder_name - 2) / 2)
+                local centered_text = string.rep(" ", padding) .. "%#Directory#" .. icon .. " " .. folder_name .. "%*"
+                vim.opt_local.winbar = centered_text
+              end,
+            },
           },
           hide_root_node = true,
           close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
@@ -349,12 +339,6 @@ return {
         vim.keymap.set("n", "<leader>e", "<cmd>Neotree last focus reveal<CR>", {
           desc = "Focus on NeoTree",
           remap = true,
-        })
-        vim.keymap.set("n", "<leader>ge", "<cmd>Neotree git_status focus reveal<CR>", {
-          desc = "Git status explorer",
-        })
-        vim.keymap.set("n", "<leader>be", "<cmd>Neotree buffers focus reveal<CR>", {
-          desc = "Buffer explorer",
         })
       end,
     },
