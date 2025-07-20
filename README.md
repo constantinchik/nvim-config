@@ -227,19 +227,18 @@ sessions.
 | `␣wr`   | restore last session |
 | `␣ws`   | save session         |
 
-### [bufferline](https://github.com/akinsho/bufferline.nvim) for tabs inside of editor
+### [bookmarks.nvim](https://github.com/tomasky/bookmarks.nvim) Enhanced bookmark navigation
 
-| Command           | Description                 |
-| ----------------- | --------------------------- |
-| `␣bn`             | Open new tab                |
-| `␣bp`             | Toggle pin buffer           |
-| `␣bP`             | Delete non-pinned buffers   |
-| `␣bo`             | Delete other buffers        |
-| `␣br`             | Delete buffers to the right |
-| `␣bl`             | Delete buffers to the left  |
-| `Shift+h` or `[b` | Previous buffer             |
-| `Shift+l` or `]b` | Next buffer                 |
-| `␣x`              | Close current buffer        |
+| Command | Description                                             |
+| ------- | ------------------------------------------------------- |
+| `mm`    | Add or remove bookmark at current line                  |
+| `mi`    | Add or edit mark annotation at current line             |
+| `mc`    | Clean all not annotated marks in local buffer           |
+| `mn`    | Jump to next mark in local buffer                       |
+| `mp`    | Jump to previous mark in local buffer                   |
+| `]b`    | Jump to next bookmark in file (vim-style)               |
+| `[b`    | Jump to previous bookmark in file (vim-style)           |
+| `␣fb`   | Search bookmarks in Telescope (press `<C-r>` to rename) |
 
 ### [colorizer](https://github.com/NvChad/nvim-colorizer.lua) for colorizing the color codes
 
@@ -280,15 +279,15 @@ The plugin is currently disabled in favor of neo-tree.
 
 ### [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) for file tree
 
-| Command         | Description                |
-| --------------- | -------------------------- |
-| `␣e`            | Focus nvim-tree            |
-| `␣fe`           | Focus nvim-tree files      |
-| `␣be`           | Focus nvim-tree buffers    |
-| `␣ge`           | Focus nvim-tree git status |
-| `Ctrl-n`        | Toggle nvim-tree           |
-| **Window mode** |                            |
-| `D`             | Toggle diff selection      |
+Clean, focused file explorer with centered folder header showing current directory name.
+
+| Command         | Description           |
+| --------------- | --------------------- |
+| `␣e`            | Focus neo-tree        |
+| `␣fe`           | Focus neo-tree        |
+| `Ctrl-e`        | Toggle neo-tree       |
+| **Window mode** |                       |
+| `D`             | Toggle diff selection |
 
 ### [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) for icons in the file
 
@@ -407,6 +406,5 @@ Automatically applies project-specific indentation and formatting settings from 
 - Checkhealth and add it to the readme.
 - Quickfix is not modifiable by default and requires `:set ma` to be able to delete items.
 - Autosession does not work well with neo-tree.
-- Bufferline slant still looks odd...
 - Mb add Trouble for quick diagnostics in whole project?
 - Configure Git diff `Gvdiffsplit` to show the complete file
