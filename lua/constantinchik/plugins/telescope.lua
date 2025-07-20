@@ -98,6 +98,109 @@ return {
           additional_args = function(opts)
             return { "--hidden" }
           end,
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
+              preview_width = 0.5,
+              results_width = 0.5,
+            },
+          },
+          results_title = "Live Grep Results",
+          entry_maker = (function()
+            local last_filename = ""
+            local entry_buffer = {}
+            local buffer_index = 1
+            local entry_display = require("telescope.pickers.entry_display")
+            
+            local line_displayer = entry_display.create({
+              separator = " ",
+              items = {
+                { width = 4 },  -- line number
+                { remaining = true }, -- line content
+              },
+            })
+            
+            return function(entry)
+              -- Check if we have buffered entries to return
+              if buffer_index <= #entry_buffer then
+                local buffered_entry = entry_buffer[buffer_index]
+                buffer_index = buffer_index + 1
+                return buffered_entry
+              end
+              
+              -- Reset buffer for new batch
+              entry_buffer = {}
+              buffer_index = 1
+              
+              -- Parse the vimgrep line manually
+              local filename, lnum, col, text = string.match(entry, "(.-):(.-):(.-):(.*)")
+              if not filename then
+                return nil
+              end
+              
+              local tail = require("telescope.utils").path_tail(filename)
+              local parent = vim.fn.fnamemodify(filename, ":h:t")
+              local short_path
+              if parent == "." or parent == "" then
+                short_path = tail
+              else
+                short_path = parent .. "/" .. tail
+              end
+              
+              local is_new_file = filename ~= last_filename
+              last_filename = filename
+              
+              if is_new_file then
+                -- Create header entry
+                local header_entry = {
+                  value = filename .. ":header",
+                  ordinal = filename .. " header",
+                  display = function()
+                    return "📁 " .. short_path
+                  end,
+                  filename = filename,
+                  is_header = true,
+                }
+                
+                -- Create line entry
+                local line_entry = {
+                  value = entry,
+                  ordinal = filename .. " " .. text,
+                  display = function()
+                    return line_displayer({
+                      { " " .. lnum, "TelescopeResultsLineNr" },
+                      { text:gsub("^%s+", ""), "TelescopeResultsNumber" },
+                    })
+                  end,
+                  filename = filename,
+                  lnum = tonumber(lnum),
+                  col = tonumber(col),
+                  text = text,
+                }
+                
+                -- Buffer both entries
+                entry_buffer = { header_entry, line_entry }
+                buffer_index = 2
+                return header_entry
+              else
+                -- Regular line entry
+                return {
+                  value = entry,
+                  ordinal = filename .. " " .. text,
+                  display = function()
+                    return line_displayer({
+                      { " " .. lnum, "TelescopeResultsLineNr" },
+                      { text:gsub("^%s+", ""), "TelescopeResultsNumber" },
+                    })
+                  end,
+                  filename = filename,
+                  lnum = tonumber(lnum),
+                  col = tonumber(col),
+                  text = text,
+                }
+              end
+            end
+          end)(),
         },
       },
     })

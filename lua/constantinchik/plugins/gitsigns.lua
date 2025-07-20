@@ -42,9 +42,6 @@ return {
         row = 0,
         col = 1,
       },
-      yadm = {
-        enable = false,
-      },
       on_attach = function()
         -- Setup keybindings
         vim.keymap.set("n", "<leader>gh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
