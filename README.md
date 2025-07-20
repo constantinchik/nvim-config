@@ -154,15 +154,20 @@ Disabled italics for theme. Added transparent background.
 
 ### [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting.
 
-### [harpoon](https://github.com/ThePrimeagen/harpoon) for quick navigation between files
+### [harpoon](https://github.com/ThePrimeagen/harpoon/tree/harpoon2) for quick navigation between files
+
+**Updated to Harpoon2 with Telescope integration**
 
 | Command | Description                     |
 | ------- | ------------------------------- |
 | `␣hm`   | add file to harpoon             |
-| `␣hn`   | go to next harpoon file         |
+| `␣hh`   | open harpoon with telescope     |
+| `␣ha`   | jump to harpoon file 1          |
+| `␣hs`   | jump to harpoon file 2          |
+| `␣hd`   | jump to harpoon file 3          |
+| `␣hf`   | jump to harpoon file 4          |
 | `␣hp`   | go to previous harpoon file     |
-| `␣hh`   | open harpoon menu               |
-| `␣fj`   | open harpoon files in telescope |
+| `␣hn`   | go to next harpoon file         |
 
 ### [fugitive](https://github.com/tpope/vim-fugitive) for git integration
 
