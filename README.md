@@ -110,7 +110,9 @@ For package management this config uses [lazy](https://github.com/folke/lazy.nvi
 
 Currently the following plugins are installed:
 
-### [telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding with the next key bindings:
+### [telescope](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding with smart auto-opening
+
+**Auto-opens find_files when nvim starts without a file** (e.g., `nvim` or `nvim /directory`) for instant project browsing.
 
 | Command   | Description                                 |
 | --------- | ------------------------------------------- |

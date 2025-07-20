@@ -196,5 +196,17 @@ return {
     vim.keymap.set("n", "<leader>fj", "<cmd>Telescope harpoon marks<CR>", { desc = "Find harpoon files" })
     -- Undo
     vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<CR>", { desc = "Find undo history" })
+
+    -- Auto-open telescope when nvim starts in a directory
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        local arg = vim.fn.argv(0)
+        if arg == "" or (vim.fn.isdirectory(arg) == 1) then
+          vim.schedule(function()
+            require("telescope.builtin").find_files()
+          end)
+        end
+      end,
+    })
   end,
 }
