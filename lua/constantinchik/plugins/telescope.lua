@@ -106,101 +106,54 @@ return {
             },
           },
           results_title = "Live Grep Results",
-          entry_maker = (function()
-            local last_filename = ""
-            local entry_buffer = {}
-            local buffer_index = 1
+          entry_maker = function(entry)
             local entry_display = require("telescope.pickers.entry_display")
-            
+            local devicons = require("nvim-web-devicons")
+
+            local filename_width = 15
+
             local line_displayer = entry_display.create({
               separator = " ",
               items = {
-                { width = 4 },  -- line number
-                { remaining = true }, -- line content
+                { width = 2 }, -- icon
+                { width = filename_width },
+                { width = 1 },
+                { remaining = true },
               },
             })
-            
-            return function(entry)
-              -- Check if we have buffered entries to return
-              if buffer_index <= #entry_buffer then
-                local buffered_entry = entry_buffer[buffer_index]
-                buffer_index = buffer_index + 1
-                return buffered_entry
-              end
-              
-              -- Reset buffer for new batch
-              entry_buffer = {}
-              buffer_index = 1
-              
-              -- Parse the vimgrep line manually
-              local filename, lnum, col, text = string.match(entry, "(.-):(.-):(.-):(.*)")
-              if not filename then
-                return nil
-              end
-              
-              local tail = require("telescope.utils").path_tail(filename)
-              local parent = vim.fn.fnamemodify(filename, ":h:t")
-              local short_path
-              if parent == "." or parent == "" then
-                short_path = tail
-              else
-                short_path = parent .. "/" .. tail
-              end
-              
-              local is_new_file = filename ~= last_filename
-              last_filename = filename
-              
-              if is_new_file then
-                -- Create header entry
-                local header_entry = {
-                  value = filename .. ":header",
-                  ordinal = filename .. " header",
-                  display = function()
-                    return "📁 " .. short_path
-                  end,
-                  filename = filename,
-                  is_header = true,
-                }
-                
-                -- Create line entry
-                local line_entry = {
-                  value = entry,
-                  ordinal = filename .. " " .. text,
-                  display = function()
-                    return line_displayer({
-                      { " " .. lnum, "TelescopeResultsLineNr" },
-                      { text:gsub("^%s+", ""), "TelescopeResultsNumber" },
-                    })
-                  end,
-                  filename = filename,
-                  lnum = tonumber(lnum),
-                  col = tonumber(col),
-                  text = text,
-                }
-                
-                -- Buffer both entries
-                entry_buffer = { header_entry, line_entry }
-                buffer_index = 2
-                return header_entry
-              else
-                -- Regular line entry
-                return {
-                  value = entry,
-                  ordinal = filename .. " " .. text,
-                  display = function()
-                    return line_displayer({
-                      { " " .. lnum, "TelescopeResultsLineNr" },
-                      { text:gsub("^%s+", ""), "TelescopeResultsNumber" },
-                    })
-                  end,
-                  filename = filename,
-                  lnum = tonumber(lnum),
-                  col = tonumber(col),
-                  text = text,
-                }
-              end
+
+            local filename, lnum, col, text = string.match(entry, "(.-):(.-):(.-):(.*)")
+            if not filename then
+              return nil
             end
-          end)(),
+
+            local tail = require("telescope.utils").path_tail(filename)
+            local filename_without_ext = vim.fn.fnamemodify(tail, ":r")
+
+            -- Crop filename to show ending if too long
+            if #filename_without_ext > filename_width then
+              filename_without_ext = "…" .. string.sub(filename_without_ext, -(filename_width - 1))
+            end
+
+            local icon, icon_hl = devicons.get_icon(tail, vim.fn.fnamemodify(tail, ":e"), { default = true })
+
+            return {
+              value = entry,
+              ordinal = filename .. " " .. text,
+              display = function()
+                return line_displayer({
+                  { icon or "", icon_hl or "DevIconDefault" },
+                  { filename_without_ext, "Normal" },
+                  { "|", "TelescopeResultsComment" },
+                  { text:gsub("^%s+", ""), "TelescopeMatching" },
+                })
+              end,
+              filename = filename,
+              lnum = tonumber(lnum),
+              col = tonumber(col),
+              text = text,
+            }
+          end,
         },
       },
     })
