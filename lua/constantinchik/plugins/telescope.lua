@@ -94,6 +94,10 @@ return {
         },
       },
       pickers = {
+        find_files = {
+          hidden = true,
+          file_ignore_patterns = { "node_modules", ".git/" },
+        },
         live_grep = {
           additional_args = function(opts)
             return { "--hidden" }
@@ -167,7 +171,11 @@ return {
     require("constantinchik.helpers.telescope").customize()
 
     -- Setup keymaps
-    vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
+    vim.keymap.set("n", "<leader>ff", function()
+      require("telescope.builtin").find_files({
+        cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+      })
+    end, { desc = "Find files" })
     vim.keymap.set(
       "n",
       "<leader>fa",
