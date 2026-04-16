@@ -7,54 +7,44 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    local treesitter = require("nvim-treesitter.configs")
-    -- configure
-    treesitter.setup({
-      -- A list of parser names, or "all" (the five listed parsers should always be installed)
-      ensure_installed = {
-        "json",
-        "javascript",
-        "typescript",
-        "angular",
-        "yaml",
-        "html",
-        "css",
-        "scss",
-        "markdown",
-        "markdown_inline",
-        "svelte",
-        "tsx",
-        "vim",
-        "dockerfile",
-        "gitignore",
-        "lua",
-        "rust",
-        "vimdoc",
-        "query",
-        "c",
-      },
+    -- Ensure parsers are installed
+    local parsers = {
+      "json",
+      "javascript",
+      "typescript",
+      "angular",
+      "yaml",
+      "html",
+      "css",
+      "scss",
+      "markdown",
+      "markdown_inline",
+      "svelte",
+      "tsx",
+      "vim",
+      "dockerfile",
+      "gitignore",
+      "lua",
+      "rust",
+      "vimdoc",
+      "query",
+      "c",
+    }
 
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
+    local installed = require("nvim-treesitter").get_installed()
+    local to_install = vim.tbl_filter(function(p)
+      return not vim.tbl_contains(installed, p)
+    end, parsers)
+    if #to_install > 0 then
+      require("nvim-treesitter").install(to_install)
+    end
 
-      -- Automatically install missing parsers when entering buffer
-      -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-      auto_install = true,
-
-      -- List of parsers to ignore installing (or "all")
-      -- ignore_install = { "javascript" },
-
-      highlight = {
-        enable = true,
-
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-      },
-      indent = { enable = true },
-      autotag = { enable = true },
+    -- Enable treesitter-based highlighting and indentation
+    vim.treesitter.start = vim.treesitter.start or function() end
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
     })
   end,
 }

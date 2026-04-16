@@ -69,7 +69,6 @@ return {
         "eslint_d",
         "stylelint",
         "js-debug-adapter",
-        "chrome-debug-adapter",
 
         -- c/cpp stuff
         "clang-format",

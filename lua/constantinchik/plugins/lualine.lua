@@ -2,6 +2,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
+    "catppuccin/nvim",
   },
   config = function()
     local lualine = require("lualine")
@@ -14,7 +15,7 @@ return {
     lualine.setup({
       options = {
         icons_enabled = true,
-        theme = "catppuccin",
+        theme = "catppuccin-mocha",
       },
       sections = {
         lualine_x = {

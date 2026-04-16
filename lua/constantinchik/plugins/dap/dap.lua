@@ -3,11 +3,11 @@ return {
   config = function()
     local dap = require("dap")
 
-    local ok, pkg = pcall(function()
-      return require("mason-registry").get_package("js-debug-adapter")
+    local ok, path = pcall(function()
+      return require("mason-registry").get_package("js-debug-adapter"):get_install_path()
     end)
 
-    if ok and pkg:is_installed() then
+    if ok then
       dap.adapters["pwa-node"] = {
         type = "server",
         host = "localhost",
@@ -15,7 +15,7 @@ return {
         executable = {
           command = "node",
           args = {
-            pkg:get_install_path() .. "/js-debug/src/dapDebugServer.js",
+            path .. "/js-debug/src/dapDebugServer.js",
             "${port}",
           },
         },

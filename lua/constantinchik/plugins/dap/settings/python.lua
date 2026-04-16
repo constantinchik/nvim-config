@@ -19,14 +19,13 @@ return {
     },
   },
   config = function()
-    local ok, pkg = pcall(function()
-      return require("mason-registry").get_package("debugpy")
+    local ok, path = pcall(function()
+      return require("mason-registry").get_package("debugpy"):get_install_path()
     end)
-    if not ok or not pkg:is_installed() then
+    if not ok then
       vim.notify("debugpy not installed. Run :MasonToolsInstall", vim.log.levels.WARN)
       return
     end
-    local path = pkg:get_install_path()
     require("dap-python").setup(path .. "/venv/bin/python")
   end,
 }
